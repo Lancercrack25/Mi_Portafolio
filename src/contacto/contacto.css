@@ -1,0 +1,121 @@
+.contacto-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(ellipse at center, #050505 0%, #07010f 70%);
+  padding: 140px 10% 60px;
+}
+
+.contacto-cuadro {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 60px 70px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.contacto-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.contacto-titulo::after {
+  content: '';
+  display: block;
+  width: 460px;
+  height: 3px;
+  background: linear-gradient(135deg, #18bcc2, #ee13d1);
+  margin: 15px 0 0;
+  border-radius: 2px;
+}
+
+.contacto-subtitulo {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-grupo label {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-grupo input,
+.form-grupo textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: white;
+  font-size: 0.95rem;
+  font-family: 'Segoe UI', sans-serif;
+  outline: none;
+  transition: border-color 0.3s ease;
+  resize: none;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+  border-color: #646cff;
+}
+
+.form-grupo input::placeholder,
+.form-grupo textarea::placeholder {
+  color: #444;
+}
+
+.contacto-btn {
+  background: linear-gradient(135deg, #64dbff, #561c94, #ff3f8f);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(100, 108, 255, 0.3);
+  margin-top: 10px;
+}
+
+.contacto-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(100, 108, 255, 0.5);
+}
+
+.contacto-exito {
+  color: #4caf50;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.contacto-error {
+  color: #f44336;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.contacto-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

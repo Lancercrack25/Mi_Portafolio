@@ -1,0 +1,146 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  /* FIX IMPORTANTE: altura fija para evitar cortes */
+  height: 78px;
+
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  z-index: 1000;
+}
+
+/* LOGO */
+.navbar-logo span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  background: linear-gradient(135deg, #7f0bdd, #3ff2ff, #ff3f8f);
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.navbar-logo span:hover {
+  filter: brightness(1.3);
+}
+
+/* LINKS */
+.navbar-links {
+  display: flex;
+  gap: 35px;
+}
+
+.navbar-links a {
+  position: relative;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: 0.25s ease;
+}
+
+/* Hover glow */
+.navbar-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(156, 63, 255, 0.6);
+}
+
+/* Línea animada */
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+
+  background: linear-gradient(135deg, #ff2e63, #9c3fff);
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVO */
+.navbar-links a.active {
+  color: white;
+}
+
+.navbar-links a.active::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+/* Animación hamburguesa */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+
+    /* FIX CRÍTICO: debe coincidir con navbar height */
+    top: 78px;
+    right: 0;
+
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    padding: 20px 0;
+
+    transform: translateY(-200%);
+    transition: 0.4s ease;
+  }
+
+  .navbar-links.open {
+    transform: translateY(0);
+  }
+}

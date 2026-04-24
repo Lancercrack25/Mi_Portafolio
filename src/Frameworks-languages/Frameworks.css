@@ -1,0 +1,93 @@
+.frameworks {
+  padding: 140px 10% 120px;
+}
+
+.frameworks-title {
+  text-align: center;
+  font-size: 27px;
+  margin-bottom: 30px;
+
+  background: linear-gradient(135deg, #2ee7ff, #ff3f8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* CARRUSEL */
+.frameworks-carousel {
+  display: flex;
+  gap: 28px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding: 20px 10px 40px;
+
+  perspective: 1000px;
+
+  /* ocultar scrollbar */
+  scrollbar-width: none;
+}
+
+.frameworks-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.card {
+  min-width: 260px;
+  scroll-snap-align: center;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  transition: all 0.4s ease;
+  transform: translateZ(0);
+}
+
+/* EFECTO HOVER 3D SUAVE */
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: rgba(156,63,255,0.5);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* IMAGEN */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+
+  transition: 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* TITULO */
+.card-title {
+  padding: 12px;
+  color: white;
+  font-weight: 500;
+}
+
+/* LINK */
+.card a {
+  display: block;
+  padding: 12px;
+
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.85rem;
+
+  transition: 0.3s ease;
+}
+
+.card a:hover {
+  color: white;
+  text-shadow: 0 0 8px rgba(156,63,255,0.6);
+}

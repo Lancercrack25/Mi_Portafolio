@@ -1,0 +1,160 @@
+.home-container {
+  background: radial-gradient(circle at top, #0a0a0f, #050505 60%);
+  color: white;
+  min-height: 100vh;
+}
+
+/* SECCIÓN */
+.about {
+  padding: 160px 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.about-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* FOTO (ESTILO EDITORIAL) */
+.image-wrapper {
+  width: 329px;
+  height: 392px;
+  border-radius: 24px;
+  overflow: hidden;
+
+  position: relative;
+
+  background: linear-gradient(135deg, #2ee7ff33, #ff3fa933);
+  padding: 5px;
+
+  transition: 0.5s ease;
+}
+
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(255,63,169,0.15), transparent 60%);
+  z-index: 0;
+}
+
+.image-wrapper img {
+  width: 312px;
+  height: 382px;
+  object-fit: cover;
+  border-radius: 22px;
+  position: relative;
+  z-index: 1;
+
+  transition: 0.5s ease;
+}
+
+.image-wrapper:hover {
+  transform: translateY(-12px);
+}
+
+/* TEXTO PRINCIPAL */
+.about-right h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+
+  line-height: 1.2; /* 👈 importante */
+  display: inline-block;
+
+  background: linear-gradient(90deg, #2ee7ff, #ff3f8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 15px;
+}
+
+.about-right h3 {
+  color: #9a9a9a;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.about-right p {
+  color: #b5b5b5;
+  line-height: 1.9;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+/* HIGHLIGHT */
+.highlight {
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(46,231,255,0.25);
+}
+
+/* CARDS MODERNAS (GLASS PREMIUM) */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  padding: 28px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+
+  transition: 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(46,231,255,0.08), transparent 60%);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.card p {
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .image-wrapper {
+    margin: 0 auto;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+}
