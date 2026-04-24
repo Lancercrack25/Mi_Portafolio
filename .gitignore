@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 #archivos que no se deben de compartir
 Backend/.env
-Backend/node_modules
-src/admin-modem
+src/admin-mode

@@ -64,6 +64,16 @@ app.post('/admin/login', (req, res) => {
   }
 })
 
+app.delete('/contacto/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    await pool.query('DELETE FROM contacto WHERE id = $1', [id])
+    res.json({ mensaje: '✅ Mensaje eliminado' })
+  } catch  {
+    res.status(500).json({ error: '❌ Error al eliminar el mensaje' })
+  }
+})
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {

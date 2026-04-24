@@ -1,23 +1,18 @@
-import { useState } from 'react'
 import Navbar from "../Navbar/Navbar"
 import Footer from "../Footer/Footer"
 import Swal from 'sweetalert2'
+import useContactoForm from '../hooks/useContactoForm.js'
 import './contacto.css'
 
+const swalConfig = {
+  background: 'linear-gradient(to right, #0d1a64, #24163e)',
+  color: '#fff',
+  confirmButtonColor: '#7313b3',
+  confirmButtonText: 'Entendido'
+}
+
 const Contacto = () => {
-  const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' })
-  const [enviando, setEnviando] = useState(false)
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
-
-  const swalConfig = {
-    background: 'linear-gradient(to right, #0d1a64, #24163e)',
-    color: '#fff',
-    confirmButtonColor: '#7313b3',
-    confirmButtonText: 'Entendido'
-  }
+  const { form, enviando, handleChange, resetForm, enviarMensaje } = useContactoForm()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -43,43 +38,25 @@ const Contacto = () => {
       return
     }
 
-    setEnviando(true)
+    const exito = await enviarMensaje()
 
-    try {
-      const res = await fetch('http://localhost:3000/contacto', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+    if (exito) {
+      resetForm()
+      Swal.fire({
+        ...swalConfig,
+        icon: 'success',
+        title: '¡Mensaje enviado!',
+        text: 'Me pondré en contacto contigo pronto.',
+        confirmButtonText: 'Cerrar'
       })
-
-      if (res.ok) {
-        setForm({ nombre: '', email: '', mensaje: '' })
-        Swal.fire({
-          ...swalConfig,
-          icon: 'success',
-          title: '¡Mensaje enviado!',
-          text: 'Me pondré en contacto contigo pronto.',
-          confirmButtonText: 'Cerrar'
-        })
-      } else {
-        Swal.fire({
-          ...swalConfig,
-          icon: 'error',
-          title: 'Error',
-          text: 'Hubo un problema al enviar el mensaje, intenta de nuevo.',
-          confirmButtonText: 'Cerrar'
-        })
-      }
-    } catch {
+    } else {
       Swal.fire({
         ...swalConfig,
         icon: 'error',
         title: 'Error',
-        text: 'No se pudo conectar con el servidor.',
+        text: 'Hubo un problema al enviar el mensaje, intenta de nuevo.',
         confirmButtonText: 'Cerrar'
       })
-    } finally {
-      setEnviando(false)
     }
   }
 

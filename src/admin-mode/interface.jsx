@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import useMensajes from '../hooks/useMensajes'
 import './interface.css'
 
+const swalConfig = {
+  background: 'linear-gradient(to right, #0d1a64, #24163e)',
+  color: '#fff',
+  confirmButtonColor: '#646cff',
+}
+
 const Interface = () => {
-  const [mensajes, setMensajes] = useState([])
-  const [cargando, setCargando] = useState(true)
+  const { mensajes, cargando, error, eliminarMensaje } = useMensajes()
   const navigate = useNavigate()
 
-  const swalConfig = {
-    background: 'linear-gradient(to right, #0d1a64, #24163e)',
-    color: '#fff',
-    confirmButtonColor: '#646cff',
-  }
-
-  const eliminarMensaje = async (id) => {
+  const handleEliminar = async (id) => {
+    console.log('click en eliminar, id:', id)
     const confirm = await Swal.fire({
       ...swalConfig,
       icon: 'warning',
@@ -27,27 +27,18 @@ const Interface = () => {
       cancelButtonColor: '#444',
     })
 
+    console.log('confirm resultado:', confirm)
+
     if (confirm.isConfirmed) {
-      try {
-        await fetch(`http://localhost:3000/contacto/${id}`, {
-          method: 'DELETE'
-        })
-        setMensajes(prev => prev.filter(m => m.id !== id))
-        Swal.fire({
-          ...swalConfig,
-          icon: 'success',
-          title: 'Eliminado',
-          text: 'El mensaje fue eliminado correctamente.',
-          confirmButtonText: 'Ok'
-        })
-      } catch {
-        Swal.fire({
-          ...swalConfig,
-          icon: 'error',
-          title: 'Error',
-          text: 'No se pudo eliminar el mensaje.',
-        })
-      }
+      console.log('confirmado, eliminando...')
+      await eliminarMensaje(id)
+      Swal.fire({
+        ...swalConfig,
+        icon: 'success',
+        title: 'Eliminado',
+        text: 'El mensaje fue eliminado correctamente.',
+        confirmButtonText: 'Ok'
+      })
     }
   }
 
@@ -65,27 +56,6 @@ const Interface = () => {
       if (result.isConfirmed) navigate('/')
     })
   }
-
-  useEffect(() => {
-    const obtenerMensajes = async () => {
-      try {
-        const res = await fetch('http://localhost:3000/contacto')
-        const data = await res.json()
-        setMensajes(data)
-      } catch {
-        Swal.fire({
-          ...swalConfig,
-          icon: 'error',
-          title: 'Error',
-          text: 'No se pudieron cargar los mensajes.',
-        })
-      } finally {
-        setCargando(false)
-      }
-    }
-
-    obtenerMensajes()
-  }, [])
 
   return (
     <div className="interface-wrapper">
@@ -106,6 +76,8 @@ const Interface = () => {
 
         {cargando ? (
           <p className="interface-cargando">Cargando mensajes...</p>
+        ) : error ? (
+          <p className="interface-vacio">❌ {error}</p>
         ) : mensajes.length === 0 ? (
           <p className="interface-vacio">No hay mensajes aún 📭</p>
         ) : (
@@ -127,7 +99,10 @@ const Interface = () => {
                 <p className="mensaje-texto">{m.mensaje}</p>
                 <button
                   className="mensaje-btn-eliminar"
-                  onClick={() => eliminarMensaje(m.id)}
+                  onClick={() => {
+                    console.log('click en:', m.id)
+                    handleEliminar(m.id)
+                  }}
                 >
                   🗑 Denegar / Eliminar
                 </button>
