@@ -15,8 +15,10 @@ const proyectos = [
   { nombre: "Veterinary API", descripcion: "API REST para gestión de una veterinaria.", lenguaje: "JavaScript", link: "https://github.com/Lancercrack25/Veterinary-api" },
   { nombre: "Lab cameras package", descripcion: "Paquete de ros2 que incluye funcionalidades para la captura y procesamiento de imágenes de cámaras.", lenguaje: "Ros2/c++/python", link: "" },
   { nombre: "Influx node Ros2", descripcion: "Nodo para la integración con InfluxDB para la obtencion de datos de los sensores de gases, humedad y temperatura.", lenguaje: "Ros2/Python", link: "" },
-  { nombre: "Mars rover General interface", descripcion: "Interfaz hecha en angualr para monitoreo de funciones del rover", lenguaje: "Angular/Ros2", link: "" },
+  { nombre: "Mars rover General interface", descripcion: "Interfaz hecha en angular para monitoreo de funciones del rover.", lenguaje: "Angular", link: "" },
   { nombre: "Mi portafolio personal", descripcion: "Portafolio personal desarrollado en React y Node.js.", lenguaje: "React/Node.js/Postgres", link: "" },
+  { nombre: "Spectro-repository", descripcion: "paquete de ros2 configuradocon python para las lectura de un archivo .csv que simila datos de un espectroreal ", lenguaje: "Ros2/python", link: "" },
+  { nombre: "Statics websites", descripcion: "Sitios web estáticos que fueron hechos para trabajos, en total son 3", lenguaje: "HTML/CSS/JavaScript", link: "" },
 ]
 
 const Proyectos = () => {
