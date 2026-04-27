@@ -36,7 +36,7 @@ const Interface = () => {
         ...swalConfig,
         icon: 'success',
         title: 'Eliminado',
-        text: 'El mensaje fue eliminado correctamente.',
+        text: 'El mensaje fue eliminado correctamente de la bandeja de inicio.',
         confirmButtonText: 'Ok'
       })
     }
@@ -46,7 +46,7 @@ const Interface = () => {
     Swal.fire({
       ...swalConfig,
       icon: 'question',
-      title: '¿Cerrar sesión?',
+      title: '¿Esta seguro de querer cerrar sesión?',
       showCancelButton: true,
       confirmButtonText: 'Sí, salir',
       cancelButtonText: 'Cancelar',

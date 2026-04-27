@@ -48,7 +48,7 @@ const Login = () => {
           ...swalConfig,
           icon: 'success',
           title: `¡Bienvenido ${form.nombre}!`,
-          text: 'Acceso concedido.',
+          text: 'Acceso autorizado.',
           confirmButtonText: 'Entrar'
         }).then(() => {
           navigate('/admin/dashboard')
