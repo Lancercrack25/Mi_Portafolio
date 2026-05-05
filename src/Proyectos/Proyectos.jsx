@@ -18,7 +18,7 @@ const proyectos = [
   { nombre: "Mars rover General interface", descripcion: "Interfaz hecha en angular para monitoreo de funciones del rover.", lenguaje: "Angular", link: "" },
   { nombre: "Mi portafolio personal", descripcion: "Portafolio personal desarrollado en React y Node.js.", lenguaje: "React/Node.js/Postgres", link: "" },
   { nombre: "Spectro-repository", descripcion: "paquete de ros2 configuradocon python para las lectura de un archivo .csv que simila datos de un espectroreal ", lenguaje: "Ros2/python", link: "" },
-   { nombre: "Los 3 sistemas en 1", descripcion: "proyecto escolar de una aplicacion web con 3 bases de datos donde se manejan distintas tematicas ", lenguaje: "React/Postgres/Node.js", link: "" },
+  { nombre: "Mini-proyecto alumnos", descripcion: "proyecto escolar de un sistema de alumnos sencillo", lenguaje: "React/Postgres/Node.js", link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" },
 ]
 
 const Proyectos = () => {
