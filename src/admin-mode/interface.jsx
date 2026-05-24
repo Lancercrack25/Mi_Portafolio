@@ -114,5 +114,4 @@ const Interface = () => {
     </div>
   )
 }
-
 export default Interface

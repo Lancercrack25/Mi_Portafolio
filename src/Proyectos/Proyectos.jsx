@@ -44,7 +44,7 @@ const Proyectos = () => {
                 rel="noreferrer"
                 className="proyecto-btn"
               >
-                Ver en GitHub →
+                Ver proyecto en GitHub →
               </a>
             </div>
           ))}
