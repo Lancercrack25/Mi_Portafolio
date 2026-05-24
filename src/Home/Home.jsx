@@ -52,12 +52,12 @@ const Home = () => {
 
           <div className="card">
             <h2>⚡Soft-Skills</h2>
-            <p>Responsabilidad, trabajo en equipo, comunicación asertiva</p>
+            <p>Responsabilidad, trabajo en equipo, comunicación asertiva, Liderazgo ,Gestion del tiempo</p>
           </div>
 
           <div className="card">
             <h2>🛰️ Experiencia</h2>
-            <p>Participación en proyectos reales de ingeniería y Robotica.</p>
+            <p>Participación en proyectos semi-profecionales, Mentor, Particpiante de la URC de robotica</p>
           </div>
 
           <div className="card">
