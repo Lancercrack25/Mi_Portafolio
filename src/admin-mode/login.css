@@ -28,7 +28,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(135deg, #646cff, #9c3fff);
+  background: linear-gradient(135deg, #646cff, #ac0d0d);
 }
 
 .login-header {
@@ -93,7 +93,7 @@
 }
 
 .login-btn {
-  background: linear-gradient(135deg, #d621a9,#12c4ca, #9c3fff);
+  background: linear-gradient(135deg, #d11111,#12c4ca, #9c3fff);
   color: white;
   border: none;
   padding: 14px;

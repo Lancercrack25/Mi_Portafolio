@@ -29,7 +29,7 @@ const Proyectos = () => {
         <h2 className="proyectos-titulo">
            Mis <span>Proyectos</span>
         </h2>
-        <p className="proyectos-subtitulo">Conoce mas sobre mis  Proyectos que he realizado</p>
+        <p className="proyectos-subtitulo">Conoce mas sobre mis Proyectos que he realizado</p>
         <div className="proyectos-grid">
           {proyectos.map((proyecto, i) => (
             <div className="proyecto-card" key={i}>

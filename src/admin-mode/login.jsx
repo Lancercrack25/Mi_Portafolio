@@ -83,7 +83,7 @@ const Login = () => {
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-grupo">
-            <label>Usuario</label>
+            <label>Nombre Admin</label>
             <input
               type="text"
               name="nombre"
