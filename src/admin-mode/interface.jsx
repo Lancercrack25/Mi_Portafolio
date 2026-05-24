@@ -61,7 +61,7 @@ const Interface = () => {
     <div className="interface-wrapper">
       <div className="interface-container">
         <div className="interface-header">
-          <h1 className="interface-titulo">Panel Admin</h1>
+          <h1 className="interface-titulo">Admin Panel</h1>
           <button className="interface-logout" onClick={cerrarSesion}>
             Cerrar sesión
           </button>
