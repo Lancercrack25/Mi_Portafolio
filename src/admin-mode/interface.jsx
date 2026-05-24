@@ -104,7 +104,7 @@ const Interface = () => {
                     handleEliminar(m.id)
                   }}
                 >
-                  🗑 Denegar / Eliminar
+                   Denegar/Eliminar
                 </button>
               </div>
             ))}

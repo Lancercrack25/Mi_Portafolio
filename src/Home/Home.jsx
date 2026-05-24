@@ -38,9 +38,9 @@ const Home = () => {
             </p>
 
             <p>
-              Actualmente formo parte del equipo
+              Actualmente integrante del equipo
               <span className="highlight"> Mars Rover UDG Space</span>,
-              desarrollando soluciones en el area de science mission para asi contribuir al éxito de los proyectos de nuestro robot de navegacion autonoma.
+              desarrollando soluciones en el area de science mission para asi contribuir al éxito de esta mision la cual forma parte de nuestro robot de navegacion autonoma.
             </p>
 
           </div>
@@ -57,7 +57,7 @@ const Home = () => {
 
           <div className="card">
             <h2>🛰️ Experiencia</h2>
-            <p>Participación en proyectos reales de ingeniería.</p>
+            <p>Participación en proyectos reales de ingeniería y Robotica.</p>
           </div>
 
           <div className="card">

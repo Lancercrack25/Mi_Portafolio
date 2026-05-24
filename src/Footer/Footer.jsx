@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="footer-socials">
 
           <a 
-            href="https://github.com/" 
+            href="https://github.com/Lancercrack25" 
             target="_blank" 
             rel="noreferrer"
           >
