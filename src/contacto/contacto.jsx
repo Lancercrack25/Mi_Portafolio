@@ -6,7 +6,7 @@ import './contacto.css'
 
 const swalConfig = {
   background: 'linear-gradient(to right, #0d1a64, #24163e)',
-  color: '#fff',
+  color: '#e8e4e4',
   confirmButtonColor: '#7313b3',
   confirmButtonText: 'Entendido'
 }

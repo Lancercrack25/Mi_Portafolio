@@ -19,7 +19,9 @@ const proyectos = [
   { nombre: "Mi portafolio personal", descripcion: "Portafolio personal desarrollado en React y Node.js.", lenguaje: "React/Node.js/Postgres", link: "" },
   { nombre: "Spectro-repository", descripcion: "paquete de ros2 configuradocon python para las lectura de un archivo .csv que simila datos de un espectroreal ", lenguaje: "Ros2/python", link: "" },
   { nombre: "Mini-proyecto alumnos", descripcion: "proyecto escolar de un sistema de alumnos sencillo", lenguaje: "React/Postgres/Node.js", link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" },
+  { nombre: "Fuecor-website", descripcion: "sitio web de un negocio de electronica", lenguaje: "html/css/JS", link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" }
 ]
+
 
 const Proyectos = () => {
   return (
