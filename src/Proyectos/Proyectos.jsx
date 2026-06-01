@@ -22,7 +22,6 @@ const proyectos = [
   { nombre: "Fuecor-website", descripcion: "sitio web de un negocio de electronica", lenguaje: "html/css/JS", link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" }
 ]
 
-
 const Proyectos = () => {
   return (
     <div className="proyectos-container">
