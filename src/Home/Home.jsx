@@ -57,14 +57,13 @@ const Home = () => {
 
           <div className="card">
             <h2>🛰️ Experiencia</h2>
-            <p>Participación en proyectos semi-profecionales, Mentor, Particpiante de la URC de robotica, Ganador del 14 lugar de la URC a nivel internacional</p>
+            <p>Participación en proyectos semi-profecionales, Mentor, Particpiante de la URC de robotica, clasificado entre los 15 mejores de la URC a nivel internacional</p>
           </div>
 
           <div className="card">
             <h2>🎯 Enfoque</h2>
             <p>Aprendizaje constante y desarrollo profesional.</p>
           </div>
-
         </div>
         
         <Frameworks />

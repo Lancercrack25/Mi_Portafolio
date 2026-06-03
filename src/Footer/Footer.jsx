@@ -11,7 +11,7 @@ const Footer = () => {
         </h2>
 
         <p className="footer-text">
-          visita mis redes sociales para conocer mas sobre mi experiencia, proyectos y habilidades. Estoy abierto a nuevas oportunidades y colaboraciones, asi que no dudes en contactarme.
+          visita mis redes sociales para conocer mas sobre mi experiencia, proyectos y habilidades. Estoy abierto a nuevas oportunidades y colaboraciones, no dudes en contactarme.
         </p>
 
         {/* REDES */}

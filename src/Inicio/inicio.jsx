@@ -28,7 +28,7 @@ const Inicio = () => {
     <div className={`inicio-container ${animando ? 'fadeout' : ''}`}>
       <div className="inicio-cuadro">
         <h1>Bienvenido a mi portafolio</h1>
-        <p>Soy Lancercrack25, desarrollador de software</p>
+        <p>Lancercrack25, desarrollador de software</p>
         <button onClick={handleEntrar} className="inicio-btn">
           Entrar
         </button>

@@ -20,7 +20,7 @@
   font-size: 1.4rem;
   font-weight: 700;
 
-  background: linear-gradient(135deg, #2ee7ff, #9c3fff, #ff3f8f);
+  background: linear-gradient(135deg, #29ddf5, #6e1ac7, #dd3178);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -29,7 +29,7 @@
 
 /* TEXTO */
 .footer-text {
-  color: #888;
+  color: #333232;
   line-height: 1.7;
   margin-bottom: 25px;
   font-size: 0.95rem;
@@ -58,8 +58,8 @@
 
 .footer-socials a:hover {
   color: white;
-  border-color: rgba(156,63,255,0.6);
-  box-shadow: 0 0 15px rgba(156,63,255,0.2);
+  border-color: rgba(113, 46, 185, 0.6);
+  box-shadow: 0 0 15px rgba(255, 63, 245, 0.2);
   transform: translateY(-2px);
 }
 
