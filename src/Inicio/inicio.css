@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f0f 70%);
+  background: radial-gradient(ellipse at center, #1a252e 0%, #0f0f0f 70%);
 }
 
 .inicio-cuadro {

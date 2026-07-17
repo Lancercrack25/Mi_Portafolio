@@ -20,7 +20,8 @@ const proyectos = [
   { nombre: "Spectro-repository", descripcion: "paquete de ros2 configuradocon python para las lectura de un archivo .csv que simila datos de un espectroreal ", lenguaje: "Ros2/python", link: "" },
   { nombre: "Mini-proyecto alumnos", descripcion: "proyecto escolar de un sistema de alumnos sencillo", lenguaje: "React/Postgres/Node.js", link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" },
   { nombre: "Fuecor-website", descripcion: "sitio web de un negocio de electronica", lenguaje: "html/css/JS", link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" },
-  { nombre: "Beyond the click", descripcion: "Videojuego sobre el ciberacoso (Proyecto modular)", lenguaje: "c++,c#, unity hub", link: "" }
+  { nombre: "Beyond the click", descripcion: "Videojuego sobre el ciberacoso (Proyecto modular)", lenguaje: "c++,c#, unity hub", link: "" },
+  { nombre:"Asistente Revan", descripcion: "Assitente de IA para tu ordenador", lenguaje: "python,css,html,js", link: "https://github.com/Lancercrack25/Revan-IA-asistent"} 
 ]
 
 const Proyectos = () => {
