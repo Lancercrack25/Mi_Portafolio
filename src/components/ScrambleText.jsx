@@ -35,7 +35,7 @@ const ScrambleText = ({
   texto,
   retraso = 0,
   duracion = 1.2,
-  modo = 'decodificar',
+  modo = 'escribir',
   cursor = false,
   alHover = false,
 }) => {

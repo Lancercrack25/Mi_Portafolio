@@ -59,7 +59,6 @@ const Home = () => {
                 cursor
               />
             </h3>
-
             <p>
              Me dedico al desarrollo de software enfocado en construir interfaces modernas y sistemas funcionales que combinan buen diseño con eficiencia.
             </p>
