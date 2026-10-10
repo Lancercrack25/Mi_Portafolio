@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Inicio from './Inicio/Inicio'
+import { MotionConfig } from 'motion/react'
+import Inicio from './Inicio/inicio'
 import Home from './Home/Home'
 import Proyectos from './Proyectos/Proyectos'
 import Contacto from './contacto/contacto'
 import Login from './admin-mode/login'
-import Interface from './admin-mode/Interface'
+import Interface from './admin-mode/interface'
 import './App.css'
 
 function App() {

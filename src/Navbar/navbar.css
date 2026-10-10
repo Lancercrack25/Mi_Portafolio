@@ -83,7 +83,17 @@
 }
 
 .navbar-links a.active::after {
-  width: 100%;
+  display: none;
+}
+
+.nav-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #ff2e63, #9c3fff);
 }
 
 /* HAMBURGER */

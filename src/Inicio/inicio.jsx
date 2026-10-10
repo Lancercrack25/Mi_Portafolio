@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './Inicio.css'
+import './inicio.css'
 
 const Inicio = () => {
   const navigate = useNavigate()

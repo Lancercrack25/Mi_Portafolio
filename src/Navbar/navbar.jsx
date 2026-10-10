@@ -1,12 +1,17 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
-import './Navbar.css'
+import { motion } from 'motion/react'
+import './navbar.css'
+
+const enlaces = [
+  { to: '/home', texto: 'Inicio' },
+  { to: '/proyectos', texto: 'Proyectos' },
+  { to: '/contacto', texto: 'Contacto' },
+]
 
 const Navbar = () => {
-  const location = useLocation()
+  const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
-
-  const isActive = (path) => location.pathname === path ? 'active' : ''
 
   return (
     <nav className="navbar">
@@ -15,12 +20,39 @@ const Navbar = () => {
       </div>
 
       <div className={`navbar-links ${open ? 'open' : ''}`}>
-        <Link className={isActive('/home')} to="/home">Inicio</Link>
-        <Link className={isActive('/proyectos')} to="/proyectos">Proyectos</Link>
-        <Link className={isActive('/contacto')} to="/contacto">Contacto</Link>
+        {enlaces.map(({ to, texto }) => {
+          const activo = pathname === to
+          return (
+            <Link
+              key={to}
+              to={to}
+              className={activo ? 'active' : ''}
+              onClick={() => setOpen(false)}
+            >
+              {texto}
+              {activo && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="nav-underline"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
+            </Link>
+          )
+        })}
       </div>
 
-      <div className={`hamburger ${open ? 'active' : ''}`} onClick={() => setOpen(!open)}>
+      <div
+        className={`hamburger ${open ? 'active' : ''}`}
+        role="button"
+        tabIndex={0}
+        aria-label="Abrir menú"
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') setOpen(!open)
+        }}
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -28,4 +60,5 @@ const Navbar = () => {
     </nav>
   )
 }
+
 export default Navbar
