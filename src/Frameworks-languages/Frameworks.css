@@ -12,31 +12,41 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* CARRUSEL */
-.frameworks-carousel {
-  display: flex;
-  gap: 28px;
+/* CARRUSEL: animación CSS (corre en el compositor, sin JS) */
+.tech-carousel {
+  overflow: hidden;
+  padding: 20px 0 40px;
 
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-
-  padding: 20px 10px 40px;
-
-  perspective: 1000px;
-
-  /* ocultar scrollbar */
-  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 
-.frameworks-carousel::-webkit-scrollbar {
-  display: none;
+.tech-track {
+  display: flex;
+  width: max-content;
+  animation: tech-scroll 55s linear infinite;
+}
+
+.tech-carousel:hover .tech-track {
+  animation-play-state: paused;
+}
+
+.tech-set {
+  display: flex;
+  gap: 28px;
+  padding-right: 28px; /* igual al gap: el bucle queda exacto */
+  list-style: none;
+}
+
+@keyframes tech-scroll {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* CARD */
-.card {
+.tech-card {
   min-width: 260px;
-  scroll-snap-align: center;
 
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
@@ -44,50 +54,40 @@
 
   overflow: hidden;
 
-  transition: all 0.4s ease;
-  transform: translateZ(0);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* EFECTO HOVER 3D SUAVE */
-.card:hover {
+.tech-card:hover {
   transform: translateY(-10px) scale(1.03);
   border-color: rgba(156,63,255,0.5);
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* IMAGEN */
-.card img {
+.tech-card img {
   width: 100%;
   height: 150px;
   object-fit: cover;
 
-  transition: 0.4s ease;
+  transition: transform 0.4s ease;
 }
 
-.card:hover img {
+.tech-card:hover img {
   transform: scale(1.05);
 }
 
-/* TITULO */
-.card-title {
+.tech-card-title {
   padding: 12px;
   color: white;
   font-weight: 500;
 }
 
-/* LINK */
-.card a {
-  display: block;
-  padding: 12px;
+/* Si el sistema pide menos movimiento: sin bucle, se desliza a mano */
+@media (prefers-reduced-motion: reduce) {
+  .tech-track {
+    animation: none;
+  }
 
-  color: #aaa;
-  text-decoration: none;
-  font-size: 0.85rem;
-
-  transition: 0.3s ease;
-}
-
-.card a:hover {
-  color: white;
-  text-shadow: 0 0 8px rgba(156,63,255,0.6);
+  .tech-carousel {
+    overflow-x: auto;
+  }
 }

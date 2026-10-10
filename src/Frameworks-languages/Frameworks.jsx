@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import './Frameworks.css'
 import angular from "../assets/angular.webp"
 import reacts from "../assets/reacts.webp"
@@ -18,56 +17,47 @@ import javascript from "../assets/javascript.webp"
 import both from "../assets/both.webp"
 
 const frameworks = [
-  { title: "React", img: reacts, link: "#" },
-  { title: "Angular", img: angular, link: "#" },
-  { title: "Java", img: java, link: "#" },
-  { title: "Python", img: python, link: "#" },
-  { title: "C++", img: c, link: "#" },
-  { title: "Spring Boot", img: spring, link: "#" },
-  { title: "ROS2", img: ros2, link: "#" },
-  { title: "Github", img: github, link: "#" },
-  { title: "Linux", img: linux, link: "#" },
-  { title: "AWS", img: aws, link: "#" },
-  { title: "Postman", img: postman, link: "#" },
-  { title: "Node.js", img: node, link: "#" },
-  { title: "PostgreSQL", img: postgres, link: "#" },
-  { title: "InfluxDB", img: influx, link: "#" },
-  { title: "JavaScript", img: javascript, link: "#" },
-  { title: "HTML/CSS", img: both, link: "#" }
+  { title: "React", img: reacts },
+  { title: "Angular", img: angular },
+  { title: "Java", img: java },
+  { title: "Python", img: python },
+  { title: "C++", img: c },
+  { title: "Spring Boot", img: spring },
+  { title: "ROS2", img: ros2 },
+  { title: "Github", img: github },
+  { title: "Linux", img: linux },
+  { title: "AWS", img: aws },
+  { title: "Postman", img: postman },
+  { title: "Node.js", img: node },
+  { title: "PostgreSQL", img: postgres },
+  { title: "InfluxDB", img: influx },
+  { title: "JavaScript", img: javascript },
+  { title: "HTML/CSS", img: both }
 ]
 
-const Frameworks = () => {
-  const ref = useRef(null)
+// Se renderiza dos veces: la copia (oculta a lectores de pantalla)
+// permite que el bucle de CSS no tenga saltos.
+const TechSet = ({ copia = false }) => (
+  <ul className="tech-set" aria-hidden={copia || undefined}>
+    {frameworks.map((f) => (
+      <li className="tech-card" key={f.title}>
+        <img src={f.img} alt={copia ? '' : f.title} />
+        <p className="tech-card-title">{f.title}</p>
+      </li>
+    ))}
+  </ul>
+)
 
-  useEffect(() => {
-    const container = ref.current
-    let scrollAmount = 0
-
-    const interval = setInterval(() => {
-      if (!container) return
-      scrollAmount += 1
-      if (scrollAmount >= container.scrollWidth / 2) {
-        scrollAmount = 0
-      }
-      container.scrollLeft = scrollAmount
-    }, 20)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <section className="frameworks">
-      <h2 className="frameworks-title">Lenguajes/frameworks & Tecnologías</h2>
-      <div className="frameworks-carousel" ref={ref}>
-        {frameworks.concat(frameworks).map((f, i) => (
-          <div className="card" key={i}>
-            <img src={f.img} alt={f.title} />
-            <p className="card-title">{f.title}</p>
-          </div>
-        ))}
+const Frameworks = () => (
+  <section className="frameworks">
+    <h2 className="frameworks-title">Lenguajes/frameworks & Tecnologías</h2>
+    <div className="tech-carousel">
+      <div className="tech-track">
+        <TechSet />
+        <TechSet copia />
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+)
 
 export default Frameworks
