@@ -25,6 +25,13 @@ const proyectos = [
   { nombre: "Asistente Revan", descripcion: "Asistente de IA para tu ordenador", tags: ["Python", "JavaScript", "HTML/CSS"], link: "https://github.com/Lancercrack25/Revan-IA-asistent" },
 ]
 
+// Foco de luz que sigue al cursor dentro de cada tarjeta (variables CSS --mx / --my)
+const seguirCursor = (e) => {
+  const r = e.currentTarget.getBoundingClientRect()
+  e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`)
+  e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`)
+}
+
 const Proyectos = () => {
   const [filtro, setFiltro] = useState('Todos')
 
@@ -78,6 +85,7 @@ const Proyectos = () => {
                 layout
                 key={proyecto.nombre}
                 className="proyecto-card"
+                onPointerMove={seguirCursor}
                 initial={{ opacity: 0, scale: 0.94 }}
                 animate={{
                   opacity: 1,

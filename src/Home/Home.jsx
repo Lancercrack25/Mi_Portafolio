@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import Frameworks from '../Frameworks-languages/Frameworks'
 import Footer from '../Footer/Footer'
 import TiltImage from './TiltImage'
+import ScrambleText from '../components/ScrambleText'
 import './Home.css'
 import yop from '../assets/yop.jpeg'
 
@@ -46,10 +47,18 @@ const Home = () => {
           <div className="about-right">
 
             <h1>
-              Luis Jesús Lira
+              <ScrambleText texto="Luis Jesús Lira" retraso={0.6} alHover />
             </h1>
             <br />
-            <h3>Desarrollador de Software</h3>
+            <h3>
+              <ScrambleText
+                modo="escribir"
+                texto="Desarrollador de Software"
+                retraso={1.6}
+                duracion={1.3}
+                cursor
+              />
+            </h3>
 
             <p>
              Me dedico al desarrollo de software enfocado en construir interfaces modernas y sistemas funcionales que combinan buen diseño con eficiencia.

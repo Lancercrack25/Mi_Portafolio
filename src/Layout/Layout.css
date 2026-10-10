@@ -1,0 +1,34 @@
+/* Cortina de pixeles para el cambio de página */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 900; /* debajo del navbar (1000) */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  pointer-events: none;
+}
+
+.curtain-bloque {
+  background: #07070d;
+  box-shadow: inset 0 0 0 1px rgba(46, 231, 255, 0.28);
+}
+
+/* Barra de progreso de scroll, segmentada como una barra de carga retro */
+.scroll-progress {
+  position: fixed;
+  top: 78px; /* justo debajo del navbar */
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 999;
+  pointer-events: none;
+  -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 11px);
+  mask-image: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 11px);
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, #04ebf3, #9c3fff, #c72318);
+}

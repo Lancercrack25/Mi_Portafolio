@@ -82,7 +82,7 @@
   position: absolute;
   inset: 0;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(100, 108, 255, 0.05), rgba(156, 63, 255, 0.05));
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(46, 231, 255, 0.14), rgba(156, 63, 255, 0.06) 45%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }

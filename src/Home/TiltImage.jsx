@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react'
 const TiltImage = ({ src, alt }) => {
   const reducir = useReducedMotion()
-
   const px = useMotionValue(0) // -0.5 a 0.5
   const py = useMotionValue(0)
   const sx = useSpring(px, { stiffness: 180, damping: 18 })

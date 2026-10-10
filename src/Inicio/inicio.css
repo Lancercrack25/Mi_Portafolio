@@ -10,6 +10,8 @@ body {
 }
 
 .inicio-container {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -18,14 +20,26 @@ body {
   background: radial-gradient(ellipse at center, #1a252e 0%, #0f0f0f 70%);
 }
 
+/* Campo de estrellas: ocupa todo el fondo, detrás de la tarjeta */
+.starfield {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .inicio-cuadro {
+  position: relative;
+  z-index: 1;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   padding: 60px 80px;
   text-align: center;
   width: 520px;
-  box-shadow: 
+  max-width: calc(100% - 32px);
+  box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.8),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
@@ -58,21 +72,56 @@ body {
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(100, 108, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+  /* Latido suave una vez que el botón ya apareció */
+  animation: latido 2.4s ease-in-out 2.4s infinite;
 }
 
 .inicio-btn:hover {
-  transform: translateY(-3px);
+  animation: none;
   box-shadow: 0 10px 30px rgba(100, 108, 255, 0.5);
 }
 
-.inicio-btn:active {
-  transform: translateY(0px);
+.inicio-btn:focus-visible {
+  outline: 2px solid #3ff2ff;
+  outline-offset: 4px;
 }
 
-.fadeout {
-  opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+@keyframes latido {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(100, 108, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 34px rgba(4, 235, 243, 0.55);
+  }
+}
+
+/* Destello al final del salto de hiperespacio */
+.warp-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at center, #ffffff 0%, #04ebf3 35%, rgba(4, 235, 243, 0) 70%);
+}
+
+@media (max-width: 600px) {
+  .inicio-cuadro {
+    padding: 40px 24px;
+  }
+
+  .inicio-cuadro h1 {
+    font-size: 1.4rem;
+  }
+
+  .inicio-cuadro p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inicio-btn {
+    animation: none;
+  }
 }
