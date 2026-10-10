@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import useMensajes from '../hooks/useMensajes'
+import useMensajes from '../Hooks/useMensajes'
 import './interface.css'
 
 const swalConfig = {
@@ -14,7 +14,6 @@ const Interface = () => {
   const navigate = useNavigate()
 
   const handleEliminar = async (id) => {
-    console.log('click en eliminar, id:', id)
     const confirm = await Swal.fire({
       ...swalConfig,
       icon: 'warning',
@@ -27,10 +26,8 @@ const Interface = () => {
       cancelButtonColor: '#444',
     })
 
-    console.log('confirm resultado:', confirm)
 
     if (confirm.isConfirmed) {
-      console.log('confirmado, eliminando...')
       await eliminarMensaje(id)
       Swal.fire({
         ...swalConfig,
@@ -100,7 +97,6 @@ const Interface = () => {
                 <button
                   className="mensaje-btn-eliminar"
                   onClick={() => {
-                    console.log('click en:', m.id)
                     handleEliminar(m.id)
                   }}
                 >

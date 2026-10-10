@@ -25,3 +25,4 @@ dist-ssr
 #archivos que no se deben de compartir
 Backend/.env
 src/admin-mode
+src/config.js

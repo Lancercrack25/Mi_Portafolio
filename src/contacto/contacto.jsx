@@ -1,7 +1,6 @@
-import Navbar from "../Navbar/Navbar"
 import Footer from "../Footer/Footer"
 import Swal from 'sweetalert2'
-import useContactoForm from '../hooks/useContactoForm.js'
+import useContactoForm from '../Hooks/useContactoForm.js'
 import './contacto.css'
 
 const swalConfig = {
@@ -62,11 +61,10 @@ const Contacto = () => {
 
   return (
     <div className="contacto-container">
-      <Navbar />
       <div className="contacto-cuadro">
         <h2 className="contacto-titulo">Contáctame</h2>
         <p className="contacto-subtitulo">¿Tienes algún proyecto en mente? Escríbeme</p>
-        <form className="contacto-form" onSubmit={handleSubmit}>
+        <form className="contacto-form" onSubmit={handleSubmit} noValidate>
           <div className="form-grupo">
             <label>Nombre</label>
             <input
@@ -80,7 +78,7 @@ const Contacto = () => {
           <div className="form-grupo">
             <label>Email</label>
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Tu correo"
               value={form.email}

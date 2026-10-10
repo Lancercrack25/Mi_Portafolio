@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import './Login.css'
+import { API_URL } from '../config'
+import './login.css'
 
 const Login = () => {
   const [form, setForm] = useState({ nombre: '', password: '' })
@@ -35,7 +36,7 @@ const Login = () => {
     setEnviando(true)
 
     try {
-      const res = await fetch('http://localhost:3000/admin/login', {
+      const res = await fetch(`${API_URL}/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
