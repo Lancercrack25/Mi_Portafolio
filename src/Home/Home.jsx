@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer'
 import TiltImage from './TiltImage'
 import ScrambleText from '../components/ScrambleText'
 import './Home.css'
-import yop from '../assets/yop.jpeg'
+import yops from '../assets/yops.jpeg'
 
 const tarjetas = [
   {
@@ -40,7 +40,7 @@ const Home = () => {
 
           {/* IZQUIERDA - FOTO */}
           <div className="about-left">
-            <TiltImage src={yop} alt="Luis Jesús Lira" />
+            <TiltImage src={yops} alt="Luis Jesús Lira" />
           </div>
 
           {/* DERECHA - INFO */}

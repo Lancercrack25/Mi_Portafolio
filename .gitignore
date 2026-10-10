@@ -26,4 +26,4 @@ dist-ssr
 Backend/.env
 src/admin-mode
 src/config.js
-src/assets/yop.jpeg
+src/assets/yops.jpeg
