@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_URL } from '../config'
 
 const useMensajes = () => {
   const [mensajes, setMensajes] = useState([])
@@ -8,7 +9,7 @@ const useMensajes = () => {
   useEffect(() => {
     const obtenerMensajes = async () => {
       try {
-        const res = await fetch('http://localhost:3000/contacto')
+        const res = await fetch(`${API_URL}/contacto`)
         const data = await res.json()
         setMensajes(data)
       } catch {
@@ -21,7 +22,7 @@ const useMensajes = () => {
   }, [])
 
   const eliminarMensaje = async (id) => {
-    await fetch(`http://localhost:3000/contacto/${id}`, { method: 'DELETE' })
+    await fetch(`${API_URL}/contacto/${id}`, { method: 'DELETE' })
     setMensajes(prev => prev.filter(m => m.id !== id))
   }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { API_URL } from '../config'
 
 const useContactoForm = () => {
   const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' })
@@ -15,7 +16,7 @@ const useContactoForm = () => {
   const enviarMensaje = async () => {
     setEnviando(true)
     try {
-      const res = await fetch('http://localhost:3000/contacto', {
+      const res = await fetch(`${API_URL}/contacto`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
