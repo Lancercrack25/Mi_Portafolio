@@ -5,9 +5,6 @@ export const DATOS = {
 
   github: 'https://github.com/Lancercrack25',
 
-  // Pon tu PDF en la carpeta "public" con este nombre (public/cv.pdf).
-  cv: '/cv.pdf',
-
   // Ciudad y zona horaria para el reloj. Lista de zonas: "IANA time zones"
   ubicacion: 'Guadalajara, México',
   zonaHoraria: 'America/Mexico_City',
