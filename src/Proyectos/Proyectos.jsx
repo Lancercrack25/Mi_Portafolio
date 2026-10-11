@@ -1,6 +1,14 @@
 import { useMemo, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from 'motion/react'
 import Footer from '../Footer/Footer'
+import ScrambleText from '../components/ScrambleText'
 import './Proyectos.css'
 
 const proyectos = [
@@ -25,15 +33,81 @@ const proyectos = [
   { nombre: "Asistente Revan", descripcion: "Asistente de IA para tu ordenador", tags: ["Python", "JavaScript", "HTML/CSS"], link: "https://github.com/Lancercrack25/Revan-IA-asistent" },
 ]
 
-// Foco de luz que sigue al cursor dentro de cada tarjeta (variables CSS --mx / --my)
-const seguirCursor = (e) => {
-  const r = e.currentTarget.getBoundingClientRect()
-  e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`)
-  e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`)
+const ProyectoCard = ({ proyecto, indice, reducir }) => {
+  // Sin IntersectionObserver (navegadores muy viejos) no hay forma de saber cuándo entra: se muestra directo
+  const [visto, setVisto] = useState(Boolean(reducir) || typeof IntersectionObserver === 'undefined')
+
+  const px = useMotionValue(0) // -0.5 a 0.5
+  const py = useMotionValue(0)
+  const sx = useSpring(px, { stiffness: 220, damping: 20 })
+  const sy = useSpring(py, { stiffness: 220, damping: 20 })
+  const rotateY = useTransform(sx, [-0.5, 0.5], [-7, 7])
+  const rotateX = useTransform(sy, [-0.5, 0.5], [7, -7])
+
+  const mover = (e) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - r.left
+    const y = e.clientY - r.top
+    e.currentTarget.style.setProperty('--mx', `${x}px`)
+    e.currentTarget.style.setProperty('--my', `${y}px`)
+    // En pantallas táctiles no se inclina: sería un tirón al arrastrar para hacer scroll
+    if (!reducir && e.pointerType === 'mouse') {
+      px.set(x / r.width - 0.5)
+      py.set(y / r.height - 0.5)
+    }
+  }
+
+  const salir = () => {
+    px.set(0)
+    py.set(0)
+  }
+
+  const clases = ['proyecto-card']
+  if (visto) clases.push('visible')
+  if (visto && !reducir) clases.push('boot')
+
+  return (
+    <div className="proyecto-stage" onPointerMove={mover} onPointerLeave={salir}>
+      <motion.article
+        className={clases.join(' ')}
+        style={reducir ? undefined : { '--d': `${Math.min(indice, 8) * 0.06}s`, rotateX, rotateY }}
+        whileHover={reducir ? undefined : { y: -8 }}
+        transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+        viewport={{ once: true, amount: 0.2 }}
+        onViewportEnter={() => setVisto(true)}
+      >
+        <span className="proyecto-scan" aria-hidden="true" />
+        <span className="proyecto-hud" aria-hidden="true" />
+
+        <div className="proyecto-header">
+          <h3>{proyecto.nombre}</h3>
+          <div className="proyecto-tags">
+            {proyecto.tags.map((t) => (
+              <span className="proyecto-lenguaje" key={t}>{t}</span>
+            ))}
+          </div>
+        </div>
+        <p className="proyecto-descripcion">{proyecto.descripcion}</p>
+        {proyecto.link ? (
+          <a
+            href={proyecto.link}
+            target="_blank"
+            rel="noreferrer"
+            className="proyecto-btn"
+          >
+            Ver proyecto en GitHub →
+          </a>
+        ) : (
+          <span className="proyecto-btn sin-link">Repositorio no público</span>
+        )}
+      </motion.article>
+    </div>
+  )
 }
 
 const Proyectos = () => {
   const [filtro, setFiltro] = useState('Todos')
+  const reducir = useReducedMotion()
 
   // Solo se ofrecen como filtro las tecnologías que aparecen en 2 o más proyectos
   const etiquetas = useMemo(() => {
@@ -53,7 +127,7 @@ const Proyectos = () => {
     <div className="proyectos-container">
       <section className="proyectos-section">
         <h2 className="proyectos-titulo">
-           Mis <span>Proyectos</span>
+           Mis <span><ScrambleText texto="Proyectos" retraso={0.3} alHover /></span>
         </h2>
         <p className="proyectos-subtitulo">Conoce mas sobre mis Proyectos que he realizado</p>
 
@@ -81,42 +155,18 @@ const Proyectos = () => {
         <motion.div layout className="proyectos-grid">
           <AnimatePresence mode="popLayout">
             {visibles.map((proyecto, i) => (
-              <motion.article
+              // El "slot" se encarga de la entrada/salida y del reacomodo al filtrar;
+              // la inclinación 3D vive dentro, para que no choque con la animación de layout.
+              <motion.div
                 layout
                 key={proyecto.nombre}
-                className="proyecto-card"
-                onPointerMove={seguirCursor}
-                initial={{ opacity: 0, scale: 0.94 }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  transition: { duration: 0.3, delay: Math.min(i, 9) * 0.04 },
-                }}
-                exit={{ opacity: 0, scale: 0.94, transition: { duration: 0.2 } }}
-                whileHover={{ y: -8 }}
+                className="proyecto-slot"
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.25 } }}
+                exit={{ opacity: 0, scale: 0.92, transition: { duration: 0.18 } }}
               >
-                <div className="proyecto-header">
-                  <h3>{proyecto.nombre}</h3>
-                  <div className="proyecto-tags">
-                    {proyecto.tags.map((t) => (
-                      <span className="proyecto-lenguaje" key={t}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-                <p className="proyecto-descripcion">{proyecto.descripcion}</p>
-                {proyecto.link ? (
-                  <a
-                    href={proyecto.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="proyecto-btn"
-                  >
-                    Ver proyecto en GitHub →
-                  </a>
-                ) : (
-                  <span className="proyecto-btn sin-link">Repositorio no público</span>
-                )}
-              </motion.article>
+                <ProyectoCard proyecto={proyecto} indice={i} reducir={reducir} />
+              </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
