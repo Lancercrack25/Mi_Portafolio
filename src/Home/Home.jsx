@@ -9,7 +9,7 @@ import yops from '../assets/yops.jpeg'
 const tarjetas = [
   {
     titulo: '⚡Soft-Skills',
-    texto: 'Responsabilidad, trabajo en equipo, comunicación asertiva, liderazgo, gestión del tiempo',
+    texto: 'Responsabilidad, trabajo en equipo, comunicación asertiva, liderazgo, gestión del tiempo, pensamiento crítico, resolución de problemas, adaptabilidad y aprendizaje continuo.',
   },
   {
     titulo: '🛰️ Experiencia',
@@ -17,7 +17,7 @@ const tarjetas = [
   },
   {
     titulo: '🎯 Enfoque',
-    texto: 'Aprendizaje constante y desarrollo profesional.',
+    texto: 'Aprendizaje constante,desarrollo profesional, Mejora continua de mis habilidades y conocimientos.',
   },
 ]
 
