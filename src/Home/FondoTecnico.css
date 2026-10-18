@@ -1,0 +1,105 @@
+.fondo-tecnico {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Todo el contenido de Inicio queda por encima del fondo */
+.home-container > :not(.fondo-tecnico) {
+  position: relative;
+  z-index: 1;
+}
+
+.ft-lienzo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Contorno del rover: abajo a la derecha, muy tenue, aparece con un barrido */
+.ft-rover {
+  position: absolute;
+  right: -4%;
+  bottom: 2%;
+  width: min(54vw, 760px);
+  height: auto;
+  opacity: 0.16;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 50%, transparent 50%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 50%, transparent 50%);
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
+  animation: ft-barrido 2.4s steps(24) 0.4s forwards;
+}
+
+@keyframes ft-barrido {
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .ft-rover {
+    width: 90vw;
+    right: -20%;
+    opacity: 0.12;
+  }
+
+  .ft-regla {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-rover {
+    animation: none;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+/* Panel de código (ROS2 / Python) que se escribe solo, en el margen izquierdo */
+.ft-codigo {
+  position: absolute;
+  left: 26px;
+  bottom: 34px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  color: rgba(190, 215, 225, 0.4);
+  font: 10px/1.65 ui-monospace, 'Cascadia Code', Consolas, monospace;
+  white-space: pre;
+  overflow: hidden;
+  text-align: left;
+  -webkit-mask-image: linear-gradient(0deg, #000 70%, transparent);
+  mask-image: linear-gradient(0deg, #000 70%, transparent);
+}
+
+.ft-codigo .c-kw { color: rgba(46, 231, 255, 0.75); font-style: normal; }
+.ft-codigo .c-str { color: rgba(255, 140, 90, 0.7); font-style: normal; }
+.ft-codigo .c-com { color: rgba(150, 160, 175, 0.45); font-style: normal; }
+
+.ft-codigo .c-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 11px;
+  margin-left: 1px;
+  vertical-align: -2px;
+  background: #2ee7ff;
+  animation: ft-parpadeo 1s steps(2, start) infinite;
+}
+
+@keyframes ft-parpadeo {
+  to { visibility: hidden; }
+}
+
+@media (max-width: 1360px) {
+  .ft-codigo {
+    display: none;
+  }
+}
