@@ -18,7 +18,7 @@
 /* TITULO */
 .footer-title {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 700; 
 
   background: linear-gradient(135deg, #29ddf5, #6e1ac7, #dd3178);
   -webkit-background-clip: text;
@@ -29,7 +29,7 @@
 
 /* TEXTO */
 .footer-text {
-  color: #333232;
+  color: #fdfdfd;
   line-height: 1.7;
   margin-bottom: 25px;
   font-size: 0.95rem;
