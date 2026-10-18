@@ -4,6 +4,7 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  background: rgba(0, 7, 9, 0.858);   /* ← nueva: sube a 0.8 para más oscuro */
 }
 
 /* Todo el contenido de Inicio queda por encima del fondo */

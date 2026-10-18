@@ -3,6 +3,7 @@ import Frameworks from '../Frameworks-languages/Frameworks'
 import Footer from '../Footer/Footer'
 import TiltImage from './TiltImage'
 import ScrambleText from '../components/ScrambleText'
+import FondoTecnico from './FondoTecnico'
 import './Home.css'
 import yops from '../assets/yops.jpeg'
 
@@ -34,6 +35,8 @@ const tarjeta = {
 const Home = () => {
   return (
     <div className="home-container">
+      <FondoTecnico />
+
       <section className="about">
 
         <div className="about-container">
