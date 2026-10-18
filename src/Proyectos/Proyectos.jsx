@@ -1,14 +1,17 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import {
   AnimatePresence,
   motion,
   useMotionValue,
+  useMotionValueEvent,
   useReducedMotion,
+  useScroll,
   useSpring,
   useTransform,
 } from 'motion/react'
 import Footer from '../Footer/Footer'
 import ScrambleText from '../components/ScrambleText'
+import FondoMarte from '../Home/FondoMarte'
 import './Proyectos.css'
 
 const proyectos = [
@@ -33,6 +36,12 @@ const proyectos = [
   { nombre: "Asistente Revan", descripcion: "Asistente de IA para tu ordenador", tags: ["Python", "JavaScript", "HTML/CSS"], link: "https://github.com/Lancercrack25/Revan-IA-asistent" },
 ]
 
+// Tarjeta con tres efectos:
+//  1. Al entrar en pantalla se "imprime" con un barrido pixelado y una línea de escaneo.
+//  2. Con el mouse se inclina en 3D y el foco de luz sigue al cursor.
+//  3. Al hover aparece una mira (esquinas HUD) que "fija" la tarjeta.
+// Los eventos de puntero van en el "stage" (que no gira) para que el área de
+// detección no cambie mientras la tarjeta rota y no haya parpadeos en los bordes.
 const ProyectoCard = ({ proyecto, indice, reducir }) => {
   // Sin IntersectionObserver (navegadores muy viejos) no hay forma de saber cuándo entra: se muestra directo
   const [visto, setVisto] = useState(Boolean(reducir) || typeof IntersectionObserver === 'undefined')
@@ -109,6 +118,13 @@ const Proyectos = () => {
   const [filtro, setFiltro] = useState('Todos')
   const reducir = useReducedMotion()
 
+  // El planeta de fondo se acerca poco a poco mientras se recorre la lista
+  const progresoRef = useRef(0)
+  const { scrollYProgress } = useScroll()
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    progresoRef.current = v * 0.55
+  })
+
   // Solo se ofrecen como filtro las tecnologías que aparecen en 2 o más proyectos
   const etiquetas = useMemo(() => {
     const conteo = {}
@@ -125,11 +141,20 @@ const Proyectos = () => {
 
   return (
     <div className="proyectos-container">
+      <div className="proyectos-fondo" aria-hidden="true">
+        <FondoMarte progresoRef={progresoRef} reducir={Boolean(reducir)} activo />
+      </div>
+      <div className="proyectos-velo" aria-hidden="true" />
       <section className="proyectos-section">
         <h2 className="proyectos-titulo">
            Mis <span><ScrambleText texto="Proyectos" retraso={0.3} alHover /></span>
         </h2>
         <p className="proyectos-subtitulo">Conoce mas sobre mis Proyectos que he realizado</p>
+
+        <p className="proyectos-estado" aria-live="polite">
+          <span>Registros: {visibles.length}</span>
+          <span>Filtro: {filtro}</span>
+        </p>
 
         <div className="proyectos-filtros" role="group" aria-label="Filtrar por tecnología">
           {etiquetas.map((t) => (
@@ -173,7 +198,9 @@ const Proyectos = () => {
       </section>
       <br />
       <br />
-      <Footer />
+      <div className="proyectos-pie">
+        <Footer />
+      </div>
     </div>
   )
 }

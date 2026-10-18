@@ -1,0 +1,22 @@
+/* Respaldo sin WebGL: un planeta hecho solo con CSS */
+.planeta-css {
+  position: absolute;
+  top: 50%;
+  right: 12%;
+  width: min(46vw, 520px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #d8864f 0%, #9a4423 45%, #3a140c 80%, #170806 100%);
+  box-shadow:
+    0 0 70px rgba(60, 160, 255, 0.28),
+    inset -40px -30px 90px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 900px) {
+  .planeta-css {
+    right: 50%;
+    top: 62%;
+    transform: translate(50%, -50%);
+  }
+}

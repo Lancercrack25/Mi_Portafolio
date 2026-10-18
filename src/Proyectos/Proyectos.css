@@ -1,7 +1,30 @@
 
 .proyectos-container {
+  position: relative;
   min-height: 100vh;
-  background: #080810;
+  background: #03040a;
+}
+
+/* ---------- Fondo de Marte (fijo, detrás de todo) ---------- */
+.proyectos-fondo,
+.proyectos-velo {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Oscurece lo justo para que las tarjetas se lean sobre el planeta */
+.proyectos-velo {
+  background:
+    linear-gradient(180deg, rgba(3, 4, 10, 0.72) 0%, rgba(3, 4, 10, 0.35) 45%, rgba(3, 4, 10, 0.6) 100%),
+    radial-gradient(ellipse at 20% 40%, rgba(3, 4, 10, 0.55), transparent 70%);
+}
+
+.proyectos-section,
+.proyectos-pie {
+  position: relative;
+  z-index: 1;
 }
 
 .proyectos-section {
@@ -18,7 +41,7 @@
 }
 
 .proyectos-titulo > span {
-  background: linear-gradient(135deg, #09c9d6, #993fff);
+  background: linear-gradient(135deg, #2ee7ff, #ff7a45);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -29,7 +52,7 @@
   display: block;
   width: 60px;
   height: 3px;
-  background: linear-gradient(135deg, #646cff, #9c3fff);
+  background: linear-gradient(90deg, #2ee7ff, #ff7a45);
   margin: 15px auto 0;
   border-radius: 2px;
 }
@@ -38,8 +61,20 @@
   color: #8a8fa3;
   font-size: 1rem;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   letter-spacing: 0.5px;
+}
+
+/* Línea de datos tipo telemetría (valores reales: cuántos proyectos y qué filtro) */
+.proyectos-estado {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+  color: #2ee7ff;
+  font-size: 0.62rem;
+  text-shadow: 0 0 10px rgba(46, 231, 255, 0.4);
 }
 
 .proyectos-grid {
@@ -50,8 +85,8 @@
 }
 
 .proyecto-card {
-  background: #0d0d18;
-  border: 1px solid rgba(100, 108, 255, 0.15);
+  background: rgba(14, 8, 8, 0.82);
+  border: 1px solid rgba(255, 140, 90, 0.2);
   border-radius: 20px;
   padding: 28px;
   display: flex;
@@ -70,7 +105,7 @@
   inset: -1px;
   border-radius: 20px;
   padding: 1px;
-  background: linear-gradient(135deg, #646cff, #9c3fff, #ff6b6b);
+  background: linear-gradient(135deg, #ff7a45, #ff3f8f, #2ee7ff);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -83,7 +118,7 @@
   position: absolute;
   inset: 0;
   border-radius: 20px;
-  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(46, 231, 255, 0.14), rgba(156, 63, 255, 0.06) 45%, transparent 70%);
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 140, 90, 0.16), rgba(255, 63, 143, 0.06) 45%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -98,9 +133,9 @@
 
 .proyecto-card:hover {
   box-shadow: 
-    0 0 20px rgba(34, 41, 177, 0.3),
-    0 0 60px rgba(255, 100, 247, 0.15),
-    0 0 100px rgba(87, 15, 165, 0.1);
+    0 0 20px rgba(255, 110, 60, 0.28),
+    0 0 60px rgba(255, 63, 143, 0.14),
+    0 0 100px rgba(255, 90, 40, 0.1);
 }
 
 .proyecto-numero {
@@ -131,18 +166,18 @@
 }
 
 .proyecto-card:hover .proyecto-header h3 {
-  color: #a0a6ff;
+  color: #ffb08a;
 }
 
 .proyecto-lenguaje {
-  background: rgba(100, 108, 255, 0.1);
-  color: #8b92ff;
+  background: rgba(255, 122, 69, 0.1);
+  color: #ff9d73;
   font-size: 0.7rem;
   font-weight: 700;
   padding: 5px 12px;
   border-radius: 20px;
   width: fit-content;
-  border: 1px solid rgba(100, 108, 255, 0.2);
+  border: 1px solid rgba(255, 122, 69, 0.28);
   letter-spacing: 1px;
   text-transform: uppercase;
   position: relative;
@@ -151,14 +186,14 @@
 }
 
 .proyecto-card:hover .proyecto-lenguaje {
-  background: rgba(100, 108, 255, 0.2);
-  border-color: rgba(100, 108, 255, 0.5);
-  box-shadow: 0 0 10px rgba(100, 108, 255, 0.3);
-  color: #c0c4ff;
+  background: rgba(255, 122, 69, 0.2);
+  border-color: rgba(255, 122, 69, 0.55);
+  box-shadow: 0 0 10px rgba(255, 122, 69, 0.3);
+  color: #ffd2bd;
 }
 
 .proyecto-descripcion {
-  color: #9aa0b4;
+  color: #b3a9a6;
   font-size: 0.88rem;
   line-height: 1.8;
   flex: 1;
@@ -168,7 +203,7 @@
 }
 
 .proyecto-card:hover .proyecto-descripcion {
-  color: #b5bacb;
+  color: #d2c8c4;
 }
 
 .proyecto-btn {
@@ -176,13 +211,13 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #666;
+  color: #9a8f8b;
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 600;
   padding: 11px 20px;
   border-radius: 50px;
-  border: 1px solid #222;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   text-align: center;
   transition: all 0.3s ease;
   margin-top: auto;
@@ -192,13 +227,13 @@
 }
 
 .proyecto-btn:hover {
-  border-color: #646cff;
+  border-color: #ff7a45;
   color: white;
-  background: rgba(48, 56, 211, 0.15);
-  box-shadow: 
-    0 0 15px rgba(100, 108, 255, 0.4),
-    0 0 30px rgba(100, 108, 255, 0.2);
-  text-shadow: 0 0 10px rgba(100, 108, 255, 0.8);
+  background: rgba(255, 122, 69, 0.15);
+  box-shadow:
+    0 0 15px rgba(255, 122, 69, 0.4),
+    0 0 30px rgba(255, 122, 69, 0.2);
+  text-shadow: 0 0 10px rgba(255, 122, 69, 0.8);
 }
 
 /* Filtros por tecnología */
@@ -215,8 +250,9 @@
   position: relative;
   isolation: isolate;
   background: transparent;
-  color: #8b92ff;
-  border: 1px solid rgba(100, 108, 255, 0.25);
+  color: #ff9d73;
+  background: rgba(14, 8, 8, 0.6);
+  border: 1px solid rgba(255, 122, 69, 0.3);
   border-radius: 50px;
   padding: 9px 18px;
   font: inherit;
@@ -227,7 +263,7 @@
 
 .filtro-btn:hover {
   color: #fff;
-  border-color: rgba(100, 108, 255, 0.6);
+  border-color: rgba(255, 122, 69, 0.7);
 }
 
 .filtro-btn.activo {
@@ -245,7 +281,7 @@
   inset: 0;
   z-index: -1;
   border-radius: 50px;
-  background: linear-gradient(135deg, #09c9d6, #993fff);
+  background: linear-gradient(135deg, #ff7a45, #ff3f8f);
 }
 
 .proyecto-tags {
@@ -262,8 +298,8 @@
 }
 
 .proyecto-btn.sin-link:hover {
-  border-color: #222;
-  color: #666;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #9a8f8b;
   background: none;
   box-shadow: none;
   text-shadow: none;
