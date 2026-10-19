@@ -16,24 +16,26 @@ import './Proyectos.css'
 
 const proyectos = [
   { nombre: "Cobaj Swimmers Rendiment", descripcion: "Sistema de gestión y análisis de rendimiento para nadadores.", tags: ["Python", "PostgreSQL"], link: "https://github.com/Lancercrack25/Cobaj-swimmers-rendiment" },
-  { nombre: "Technest Store Angular", descripcion: "Tienda en línea de compra-venta de productos electrónicos sobre piezas de pc con bases de datos funcional", tags: ["Angular", "Node.js"], link: "https://github.com/Lancercrack25/Technest-Store-angular-website" },
+  { nombre: "Technest Store Angular", descripcion: "Tienda en línea de compra-venta de productos electrónicos sobre piezas de pc con bases de datos funcional", tags: ["Angular", "Node.js","HTML/CSS","TypeScript"], link: "https://github.com/Lancercrack25/Technest-Store-angular-website" },
   { nombre: "Fit Application Tastefull", descripcion: "Aplicación de fitness y nutrición hecha para un hackathon con base de datos funcional.", tags: ["Java"], link: "https://github.com/Lancercrack25/Fit-aplication-tastefull" },
-  { nombre: "Pokemon Website", descripcion: "Sitio web de Pokemon con chatbot funcional y api de pokemones.", tags: ["Angular", "Node.js", "Prolog"], link: "https://github.com/Lancercrack25/Pokemon-Website-Angular-Node.js-Prolog" },
+  { nombre: "Pokemon Website", descripcion: "Sitio web de Pokemon con chatbot funcional y api de pokemones.", tags: ["Angular", "Node.js", "Prolog","HTML/CSS","TypeScript"], link: "https://github.com/Lancercrack25/Pokemon-Website-Angular-Node.js-Prolog" },
   { nombre: "VPN Project", descripcion: "Proyecto de red privada virtual donde se aplican distintos algoritmos para su funcionamiento.", tags: ["Python"], link: "https://github.com/Lancercrack25/vpn_proyect" },
   { nombre: "Fingers Hand Detector", descripcion: "Detector de dedos y manos con visión artificial.", tags: ["Python"], link: "https://github.com/Lancercrack25/fingers-hand-detector" },
   { nombre: "TechNest Store", descripcion: "Tienda de tecnología desarrollada en C++ aplicando orientado a objetos.", tags: ["C++"], link: "https://github.com/Lancercrack25/TechNest-Store" },
   { nombre: "Shop Simulator", descripcion: "Simulador de tienda desarrollado en C++.", tags: ["C++"], link: "https://github.com/Lancercrack25/shop-simulator" },
   { nombre: "Agenda Alumnos", descripcion: "Sistema de agenda para alumnos hecho como proyecto escolar.", tags: ["C"], link: "https://github.com/Lancercrack25/Agenda_alumnos" },
+  { nombre: "Shop Sistem", descripcion: "Sistema de supermercados hecho como proyecto escolar.", tags: ["C"], link: ""},
   { nombre: "Veterinary API", descripcion: "API REST para gestión de una veterinaria con microservicios de aws.", tags: ["JavaScript", "AWS","Java"], link: "https://github.com/Lancercrack25/Veterinary-api" },
   { nombre: "Lab cameras package", descripcion: "Paquete de ros2 que incluye funcionalidades para la captura y procesamiento de imágenes de cámaras.", tags: ["ROS2", "C++", "Python"], link: "" },
   { nombre: "Influx node Ros2", descripcion: "Nodo para la integración con InfluxDB para la obtención de datos de los sensores de gases, humedad y temperatura.", tags: ["ROS2", "Python"], link: "" },
-  { nombre: "Mars rover General interface", descripcion: "Interfaz hecha en angular para monitoreo de funciones del rover.", tags: ["Angular"], link: "" },
+  { nombre: "Mars rover General interface", descripcion: "Interfaz hecha en angular para monitoreo de funciones del rover.", tags: ["Angular","HTML/CSS","TypeScript"], link: "" },
   { nombre: "Mi portafolio personal", descripcion: "Portafolio personal desarrollado en React y Node.js.", tags: ["React", "Node.js", "PostgreSQL"], link: "" },
   { nombre: "Spectro-repository", descripcion: "Paquete de ros2 configurado con python para la lectura de un archivo .csv que simula datos de un espectro real.", tags: ["ROS2", "Python"], link: "" },
-  { nombre: "Mini-proyecto alumnos", descripcion: "Proyecto escolar de un sistema de alumnos sencillo", tags: ["React", "PostgreSQL", "Node.js"], link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" },
+  { nombre: "Mini-proyecto alumnos", descripcion: "Proyecto escolar de un sistema de alumnos sencillo", tags: ["React", "PostgreSQL", "Node.js", "HTML/CSS", "JavaScript"], link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" },
   { nombre: "Fuecor-website", descripcion: "Sitio web de un negocio de electrónica", tags: ["HTML/CSS", "JavaScript"], link: "https://github.com/Lancercrack25/mini-proyecto-alumnos" },
   { nombre: "Beyond the click", descripcion: "Videojuego sobre el ciberacoso (Proyecto modular)", tags: ["C++", "C#", "Unity"], link: "" },
   { nombre: "Asistente Revan", descripcion: "Asistente de IA para tu ordenador", tags: ["Python", "JavaScript", "HTML/CSS"], link: "https://github.com/Lancercrack25/Revan-IA-asistent" },
+  { nombre: "Autonav-visual-model", descripcion: "Paquete de ros2 que incluye funcionalidades para la vision artificial de clasificacion de martillos y botellas.", tags: ["ROS2", "C++", "Python"], link: "" }
 ]
 
 // Tarjeta con tres efectos:
