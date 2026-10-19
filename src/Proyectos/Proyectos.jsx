@@ -24,7 +24,7 @@ const proyectos = [
   { nombre: "TechNest Store", descripcion: "Tienda de tecnología desarrollada en C++ aplicando orientado a objetos.", tags: ["C++"], link: "https://github.com/Lancercrack25/TechNest-Store" },
   { nombre: "Shop Simulator", descripcion: "Simulador de tienda desarrollado en C++.", tags: ["C++"], link: "https://github.com/Lancercrack25/shop-simulator" },
   { nombre: "Agenda Alumnos", descripcion: "Sistema de agenda para alumnos hecho como proyecto escolar.", tags: ["C"], link: "https://github.com/Lancercrack25/Agenda_alumnos" },
-  { nombre: "Veterinary API", descripcion: "API REST para gestión de una veterinaria con microservicios de aws.", tags: ["JavaScript", "AWS"], link: "https://github.com/Lancercrack25/Veterinary-api" },
+  { nombre: "Veterinary API", descripcion: "API REST para gestión de una veterinaria con microservicios de aws.", tags: ["JavaScript", "AWS","Java"], link: "https://github.com/Lancercrack25/Veterinary-api" },
   { nombre: "Lab cameras package", descripcion: "Paquete de ros2 que incluye funcionalidades para la captura y procesamiento de imágenes de cámaras.", tags: ["ROS2", "C++", "Python"], link: "" },
   { nombre: "Influx node Ros2", descripcion: "Nodo para la integración con InfluxDB para la obtención de datos de los sensores de gases, humedad y temperatura.", tags: ["ROS2", "Python"], link: "" },
   { nombre: "Mars rover General interface", descripcion: "Interfaz hecha en angular para monitoreo de funciones del rover.", tags: ["Angular"], link: "" },
