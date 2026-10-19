@@ -16,7 +16,7 @@ import './Proyectos.css'
 
 const proyectos = [
   { nombre: "Cobaj Swimmers Rendiment", descripcion: "Sistema de gestión y análisis de rendimiento para nadadores.", tags: ["Python", "PostgreSQL"], link: "https://github.com/Lancercrack25/Cobaj-swimmers-rendiment" },
-  { nombre: "Technest Store Angular", descripcion: "Tienda en línea de compra-venta de productos electrónicos sobre piezas de pc con bases de datos funcional", tags: ["Angular", "Node.js","HTML/CSS","TypeScript"], link: "https://github.com/Lancercrack25/Technest-Store-angular-website" },
+  { nombre: "Technest Store Angular", descripcion: "Tienda en línea de compra-venta de productos electrónicos sobre piezas de pc con bases de datos funcional", tags: ["Angular", "Node.js","HTML/CSS","TypeScript","PostgreSQL"], link: "https://github.com/Lancercrack25/Technest-Store-angular-website" },
   { nombre: "Fit Application Tastefull", descripcion: "Aplicación de fitness y nutrición hecha para un hackathon con base de datos funcional.", tags: ["Java"], link: "https://github.com/Lancercrack25/Fit-aplication-tastefull" },
   { nombre: "Pokemon Website", descripcion: "Sitio web de Pokemon con chatbot funcional y api de pokemones.", tags: ["Angular", "Node.js", "Prolog","HTML/CSS","TypeScript"], link: "https://github.com/Lancercrack25/Pokemon-Website-Angular-Node.js-Prolog" },
   { nombre: "VPN Project", descripcion: "Proyecto de red privada virtual donde se aplican distintos algoritmos para su funcionamiento.", tags: ["Python"], link: "https://github.com/Lancercrack25/vpn_proyect" },
@@ -27,7 +27,7 @@ const proyectos = [
   { nombre: "Shop Sistem", descripcion: "Sistema de supermercados hecho como proyecto escolar.", tags: ["C"], link: ""},
   { nombre: "Veterinary API", descripcion: "API REST para gestión de una veterinaria con microservicios de aws.", tags: ["JavaScript", "AWS","Java"], link: "https://github.com/Lancercrack25/Veterinary-api" },
   { nombre: "Lab cameras package", descripcion: "Paquete de ros2 que incluye funcionalidades para la captura y procesamiento de imágenes de cámaras.", tags: ["ROS2", "C++", "Python"], link: "" },
-  { nombre: "Influx node Ros2", descripcion: "Nodo para la integración con InfluxDB para la obtención de datos de los sensores de gases, humedad y temperatura.", tags: ["ROS2", "Python"], link: "" },
+  { nombre: "Influx node Ros2", descripcion: "Nodo para la integración con InfluxDB para la obtención de datos de los sensores de gases, humedad y temperatura.", tags: ["ROS2", "Python","InfluxDB"], link: "" },
   { nombre: "Mars rover General interface", descripcion: "Interfaz hecha en angular para monitoreo de funciones del rover.", tags: ["Angular","HTML/CSS","TypeScript"], link: "" },
   { nombre: "Mi portafolio personal", descripcion: "Portafolio personal desarrollado en React y Node.js.", tags: ["React", "Node.js", "PostgreSQL"], link: "" },
   { nombre: "Spectro-repository", descripcion: "Paquete de ros2 configurado con python para la lectura de un archivo .csv que simula datos de un espectro real.", tags: ["ROS2", "Python"], link: "" },
