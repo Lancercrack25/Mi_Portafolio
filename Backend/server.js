@@ -7,6 +7,9 @@ import pool from './conection.js'
 import { initTablas } from './tablas.js'
 import './tablas.js'
 import { helmet, limitador, limitadorContacto } from './seguridad.js'
+import { limiteLogin, login, soloAdmin, validarConfig } from './adminAuth.js'
+
+validarConfig() // falla al arrancar si faltan ADMIN_USER, ADMIN_HASH o JWT_SECRET en .env
 
 await initTablas()
 const app = express()
@@ -16,7 +19,7 @@ app.use(limitador)
 app.use(cors({
   origin: 'http://localhost:5173' // solo permite peticiones desde tu frontend
 }))
-app.use(express.json())
+app.use(express.json({ limit: '20kb' }))
 
 app.get('/', (req, res) => {
   res.json({ mensaje: '🚀 Servidor corriendo correctamente' })
@@ -41,7 +44,7 @@ app.post('/contacto', limitadorContacto, async (req, res) => {
   }
 })
 
-app.get('/contacto', async (req, res) => {
+app.get('/contacto', soloAdmin, async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM contacto ORDER BY fecha DESC')
     res.json(result.rows)
@@ -51,20 +54,9 @@ app.get('/contacto', async (req, res) => {
   }
 })
 
-app.post('/admin/login', (req, res) => {
-  const { nombre, password } = req.body
+app.post('/admin/login', limiteLogin, login)
 
-  if (
-    nombre === process.env.AD_NAME &&
-    password === process.env.AD_PASSWORD
-  ) {
-    res.json({ success: true, mensaje: '✅ Bienvenido admin' })
-  } else {
-    res.status(401).json({ success: false, error: '❌ Credenciales incorrectas' })
-  }
-})
-
-app.delete('/contacto/:id', async (req, res) => {
+app.delete('/contacto/:id', soloAdmin, async (req, res) => {
   const { id } = req.params
   try {
     await pool.query('DELETE FROM contacto WHERE id = $1', [id])
