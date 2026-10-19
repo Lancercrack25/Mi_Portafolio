@@ -1,17 +1,20 @@
-
+// Autenticación de administrador: login con AD_NAME / AD_PASSWORD de tu .env, token JWT que caduca en 1 h
+// y límite de intentos. No necesita más configuración.
 import crypto from 'node:crypto'
 import jwt from 'jsonwebtoken'
-import bcrypt from 'bcryptjs'
 import rateLimit from 'express-rate-limit'
 import process from 'node:process'
 
+// Usa las MISMAS variables que ya tienes: AD_NAME y AD_PASSWORD.
+// JWT_SECRET es opcional: si no existe, se genera uno aleatorio al arrancar
+// (al reiniciar el servidor las sesiones abiertas se cierran, y ya).
+const SECRETO = process.env.JWT_SECRET || crypto.randomBytes(48).toString('base64url')
+
 const config = () => {
-  const { ADMIN_USER, ADMIN_HASH, JWT_SECRET } = process.env
-  if (!ADMIN_USER || !ADMIN_HASH || !JWT_SECRET) {
-    throw new Error('Faltan ADMIN_USER, ADMIN_HASH o JWT_SECRET. Ejecuta: node generar-credenciales.js')
-  }
-  if (JWT_SECRET.length < 32) throw new Error('JWT_SECRET es demasiado corto (mínimo 32 caracteres).')
-  return { ADMIN_USER, ADMIN_HASH, JWT_SECRET, EXPIRA: process.env.JWT_EXPIRA || '1h' }
+  const { AD_NAME, AD_PASSWORD } = process.env
+  if (!AD_NAME || !AD_PASSWORD) throw new Error('Faltan AD_NAME o AD_PASSWORD en el .env')
+  if (AD_PASSWORD.length < 12) console.warn('⚠️  AD_PASSWORD es corta: usa 12 caracteres o más.')
+  return { AD_NAME, AD_PASSWORD, JWT_SECRET: SECRETO, EXPIRA: process.env.JWT_EXPIRA || '1h' }
 }
 
 // Comparación en tiempo constante (no revela cuántos caracteres coinciden)
@@ -29,15 +32,15 @@ const limiteLogin = rateLimit({
   message: { error: 'Demasiados intentos. Intenta de nuevo más tarde.' },
 })
 
-const login = async (req, res) => {
-  const { ADMIN_USER, ADMIN_HASH, JWT_SECRET, EXPIRA } = config()
+const login = (req, res) => {
+  const { AD_NAME, AD_PASSWORD, JWT_SECRET, EXPIRA } = config()
   const { nombre, password } = req.body || {}
   if (typeof nombre !== 'string' || typeof password !== 'string' || password.length > 200) {
     return res.status(400).json({ error: 'Datos no válidos.' })
   }
   // Se comprueban SIEMPRE usuario y contraseña, para no revelar cuál de los dos falló
-  const userOk = igual(nombre, ADMIN_USER)
-  const passOk = await bcrypt.compare(password, ADMIN_HASH)
+  const userOk = igual(nombre, AD_NAME)
+  const passOk = igual(password, AD_PASSWORD)
   if (!(userOk && passOk)) return res.status(401).json({ error: 'Credenciales incorrectas.' })
 
   const token = jwt.sign({ rol: 'admin' }, JWT_SECRET, { algorithm: 'HS256', expiresIn: EXPIRA })
