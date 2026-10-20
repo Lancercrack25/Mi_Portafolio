@@ -21,7 +21,6 @@ const Inicio = () => {
       return
     }
     setAnimando(true)
-    // Salto de hiperespacio: las estrellas aceleran hasta volverse rayas
     salto.current = animate(VELOCIDAD_BASE, 3, {
       duration: 1.2,
       ease: [0.6, 0, 1, 0.8],

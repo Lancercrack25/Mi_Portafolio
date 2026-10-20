@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react'
 const COLORES = ['#ffffff', '#ffffff', '#ffffff', '#9ae8ff', '#04ebf3', '#ff6b6b']
 const Starfield = ({ velocidadRef }) => {
   const canvasRef = useRef(null)
-
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
@@ -86,7 +85,6 @@ const Starfield = ({ velocidadRef }) => {
     }
 
     const alMover = (ev) => {
-      // Parallax inverso: el fondo se desplaza un poco en sentido contrario al cursor
       mouse.x = (ev.clientX / window.innerWidth - 0.5) * -40
       mouse.y = (ev.clientY / window.innerHeight - 0.5) * -40
     }

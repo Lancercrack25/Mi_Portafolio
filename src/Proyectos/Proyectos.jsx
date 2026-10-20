@@ -176,8 +176,6 @@ const Proyectos = () => {
         <motion.div layout className="proyectos-grid">
           <AnimatePresence mode="popLayout">
             {visibles.map((proyecto, i) => (
-              // El "slot" se encarga de la entrada/salida y del reacomodo al filtrar;
-              // la inclinación 3D vive dentro, para que no choque con la animación de layout.
               <motion.div
                 layout
                 key={proyecto.nombre}

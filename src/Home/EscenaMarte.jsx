@@ -14,8 +14,6 @@ import {
 const LUZ = new THREE.Vector3(-0.75, 0.35, 0.55).normalize()
 const INCLINACION_AXIAL = THREE.MathUtils.degToRad(25.2) // la de Marte
 const _inv = new THREE.Matrix4()
-
-// Generador pseudoaleatorio con semilla: el cielo es idéntico en cada carga
 const crearRng = (semilla) => {
   let a = semilla >>> 0
   return () => {
