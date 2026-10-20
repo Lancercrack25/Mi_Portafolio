@@ -38,12 +38,6 @@ const proyectos = [
   { nombre: "Autonav-visual-model", descripcion: "Paquete de ros2 que incluye funcionalidades para la vision artificial de clasificacion de martillos y botellas.", tags: ["ROS2", "C++", "Python"], link: "" }
 ]
 
-// Tarjeta con tres efectos:
-//  1. Al entrar en pantalla se "imprime" con un barrido pixelado y una línea de escaneo.
-//  2. Con el mouse se inclina en 3D y el foco de luz sigue al cursor.
-//  3. Al hover aparece una mira (esquinas HUD) que "fija" la tarjeta.
-// Los eventos de puntero van en el "stage" (que no gira) para que el área de
-// detección no cambie mientras la tarjeta rota y no haya parpadeos en los bordes.
 const ProyectoCard = ({ proyecto, indice, reducir }) => {
   // Sin IntersectionObserver (navegadores muy viejos) no hay forma de saber cuándo entra: se muestra directo
   const [visto, setVisto] = useState(Boolean(reducir) || typeof IntersectionObserver === 'undefined')
