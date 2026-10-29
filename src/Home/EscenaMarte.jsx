@@ -71,7 +71,6 @@ const construirEstrellas = (movil) => {
     col[i * 3] = c[0] * brillo
     col[i * 3 + 1] = c[1] * brillo
     col[i * 3 + 2] = c[2] * brillo
-
     tam[i] = banda ? 1 + rng() * 1.3 : rng() < 0.04 ? 4 + rng() * 3 : 1.2 + rng() * 2
     fase[i] = rng()
   }
@@ -91,7 +90,6 @@ const Estrellas = ({ movil, reducir }) => {
   const pr = useThree((s) => s.gl.getPixelRatio())
 
   useEffect(() => () => geometria.dispose(), [geometria])
-
   useFrame((_, dt) => {
     const u = matRef.current?.uniforms
     if (!u) return
@@ -217,7 +215,6 @@ const Planeta = ({ reducir }) => {
 }
 
 const RADIO_ORBITA = 1.62
-
 // Órbita punteada con un satélite pequeño (cuerpo + paneles solares)
 const Orbita = ({ reducir }) => {
   const satRef = useRef(null)

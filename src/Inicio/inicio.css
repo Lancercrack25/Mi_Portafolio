@@ -19,7 +19,6 @@ body {
   align-items: center;
   background: radial-gradient(ellipse at center, #1a252e 0%, #0f0f0f 70%);
 }
-
 /* Campo de estrellas: ocupa todo el fondo, detrás de la tarjeta */
 .starfield {
   position: absolute;
