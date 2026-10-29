@@ -14,7 +14,7 @@ const tarjetas = [
   },
   {
     titulo: '🛰️ Experiencia',
-    texto: 'Participación en proyectos semiprofesionales, mentor, participante de la URC de robótica, clasificado entre los 15 mejores de la URC a nivel internacional',
+    texto: 'Participación en proyectos semiprofesionales, mentor de eventos internacionales, participante de la URC de robótica, clasificando junto con mi equipo entre los 15 mejores de la URC a nivel internacional',
   },
   {
     titulo: '🎯 Enfoque',
