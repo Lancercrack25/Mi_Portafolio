@@ -69,7 +69,9 @@ const Home = () => {
             <p>
               Tengo experiencia trabajando con React, Angular, Java, Python y C++, así como con Spring Boot, Node.js, AWS, Linux, ROS2 en proyectos de robótica y más.
             </p>
-
+            
+            <p>Estoy interesado en unir mis habilidades técnicas con mi pasión por la innovación, contribuyendo al desarrollo de soluciones tecnológicas que impacten positivamente en la sociedad.</p>
+        
             <p>
               Actualmente integrante del equipo
               <span className="highlight"> Mars Rover UDG Space</span>,
