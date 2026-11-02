@@ -34,6 +34,24 @@ const Contador = ({ valor }) => {
   return <>{reducir ? valor : n}</>
 }
 
+// Con qué correo respondes. Se elige una vez y queda guardado en este navegador.
+const PROVEEDORES = {
+  gmail: { nombre: 'Gmail', url: (to, su) => `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${su}` },
+  outlook: { nombre: 'Outlook', url: (to, su) => `https://outlook.live.com/mail/0/deeplink/compose?to=${to}&subject=${su}` },
+  predeterminado: { nombre: 'Programa del sistema', url: (to, su) => `mailto:${to}?subject=${su}` },
+}
+const LLAVE_CORREO = 'admin-correo'
+const leerProveedor = () => {
+  try {
+    const v = localStorage.getItem(LLAVE_CORREO)
+    return v in PROVEEDORES ? v : 'gmail'
+  } catch {
+    return 'gmail'
+  }
+}
+const enlaceResponder = (proveedor, email) =>
+  PROVEEDORES[proveedor].url(encodeURIComponent(email), encodeURIComponent('Re: tu mensaje en mi portafolio'))
+
 const DIAS_GRAFICA = 30
 const inicioDia = (t) => {
   const d = new Date(t)
@@ -97,7 +115,17 @@ const Interface = () => {
   const [busqueda, setBusqueda] = useState('')
   const [orden, setOrden] = useState('recientes')
   const [restante, setRestante] = useState(msRestantes)
+  const [proveedor, setProveedor] = useState(leerProveedor)
   const [momento] = useState(() => Date.now()) // referencia para "últimos 7 días"
+
+  const cambiarProveedor = (v) => {
+    setProveedor(v)
+    try {
+      localStorage.setItem(LLAVE_CORREO, v)
+    } catch {
+      /* sin almacenamiento: solo dura esta visita */
+    }
+  }
 
   const salir = () => {
     cerrarSesion()
@@ -257,6 +285,11 @@ const Interface = () => {
             <option value="recientes">Más recientes primero</option>
             <option value="antiguos">Más antiguos primero</option>
           </select>
+          <select className="barra-orden" aria-label="Responder con" value={proveedor} onChange={(e) => cambiarProveedor(e.target.value)}>
+            {Object.entries(PROVEEDORES).map(([k, v]) => (
+              <option key={k} value={k}>Responder con {v.nombre}</option>
+            ))}
+          </select>
           <span className="barra-cuenta" aria-live="polite">{visibles.length} de {mensajes.length}</span>
         </div>
 
@@ -293,7 +326,7 @@ const Interface = () => {
                 </div>
                 <p className="mensaje-texto">{m.mensaje}</p>
                 <div className="mensaje-acciones">
-                  <a className="mensaje-btn" href={`mailto:${m.email}?subject=${encodeURIComponent('Re: tu mensaje en mi portafolio')}`}>
+                  <a className="mensaje-btn" href={enlaceResponder(proveedor, m.email)} target={proveedor === 'predeterminado' ? undefined : '_blank'} rel="noopener noreferrer">
                     Responder
                   </a>
                   <button type="button" className="mensaje-btn" onClick={() => copiarCorreo(m.email)}>
@@ -312,5 +345,4 @@ const Interface = () => {
     </div>
   )
 }
-
 export default Interface
