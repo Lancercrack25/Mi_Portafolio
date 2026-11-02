@@ -34,7 +34,6 @@ const frameworks = [
   { title: "JavaScript", img: javascript },
   { title: "HTML/CSS", img: both }
 ]
-
 // Se renderiza dos veces: la copia (oculta a lectores de pantalla)
 // permite que el bucle de CSS no tenga saltos.
 const TechSet = ({ copia = false }) => (
@@ -50,7 +49,7 @@ const TechSet = ({ copia = false }) => (
 
 const Frameworks = () => (
   <section className="frameworks">
-    <h2 className="frameworks-title">Lenguajes/frameworks & Tecnologías</h2>
+    <h2 className="frameworks-title">Lenguajes,frameworks & Tecnologías</h2>
     <div className="tech-carousel">
       <div className="tech-track">
         <TechSet />
@@ -59,5 +58,4 @@ const Frameworks = () => (
     </div>
   </section>
 )
-
 export default Frameworks

@@ -14,7 +14,7 @@ const tarjetas = [
   },
   {
     titulo: '🛰️ Experiencia',
-    texto: 'Participación en proyectos semiprofesionales, mentor de eventos internacionales, participante de la URC de robótica, clasificando junto con mi equipo entre los 15 mejores de la URC a nivel internacional',
+    texto: 'Participación en proyectos semiprofesionales, mentor de eventos internacionales, participante de la URC del Equipo de Mars Rover UDG Space, clasificando junto con mi equipo entre los 15 mejores de la URC a nivel internacional',
   },
   {
     titulo: '🎯 Enfoque',
@@ -64,13 +64,8 @@ const Home = () => {
               Tengo experiencia trabajando con React, Angular, Java, Python y C++, así como con Spring Boot, Node.js, AWS, Linux, ROS2 en proyectos de robótica y más.
             </p>
             
-            <p>Estoy interesado en unir mis habilidades técnicas con mi pasión por la innovación, contribuyendo al desarrollo de soluciones tecnológicas que impacten positivamente en la sociedad.</p>
+            <p>Estoy interesado en el desarrollo de software, aplicaciones web y moviles, inteligencia artificial, Robotica, Servicios en la nube, Implementar soluciones tecnológicas innovadoras que apoyen a los demas.</p>
         
-            <p>
-              Actualmente integrante del equipo
-              <span className="highlight"> Mars Rover UDG Space</span>,
-              desarrollando soluciones en el área de science mission para así contribuir al éxito de esta misión, la cual forma parte de nuestro robot de navegación autónoma.
-            </p>
           </div>
         </div>
 
