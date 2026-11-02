@@ -15,6 +15,7 @@ import postgres from "../assets/postgres.webp"
 import influx from "../assets/influx.webp"
 import javascript from "../assets/javascript.webp"
 import both from "../assets/both.webp"
+import Grafana from "../assets/Grafana.webp"
 
 const frameworks = [
   { title: "React", img: reacts },
@@ -32,7 +33,8 @@ const frameworks = [
   { title: "PostgreSQL", img: postgres },
   { title: "InfluxDB", img: influx },
   { title: "JavaScript", img: javascript },
-  { title: "HTML/CSS", img: both }
+  { title: "HTML/CSS", img: both },
+  { title: "Grafana", img: Grafana }
 ]
 // Se renderiza dos veces: la copia (oculta a lectores de pantalla)
 // permite que el bucle de CSS no tenga saltos.

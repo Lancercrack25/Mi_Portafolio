@@ -12,7 +12,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* CARRUSEL: animación CSS (corre en el compositor, sin JS) */
 .tech-carousel {
   overflow: hidden;
   padding: 20px 0 40px;
