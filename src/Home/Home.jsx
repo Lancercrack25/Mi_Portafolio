@@ -52,7 +52,7 @@ const Home = () => {
                 modo="escribir"
                 texto="Desarrollador de Software"
                 retraso={1.6}
-                duracion={1.3}
+                duracion={1.1}
                 cursor
               />
             </h3>
@@ -64,7 +64,7 @@ const Home = () => {
               Tengo experiencia trabajando con React, Angular, Java, Python y C++, así como con Spring Boot, Node.js, AWS, Linux, ROS2 en proyectos de robótica y más.
             </p>
             
-            <p>Estoy interesado en el desarrollo de software, aplicaciones web y moviles, inteligencia artificial, Robotica, Servicios en la nube, Implementar soluciones tecnológicas innovadoras que apoyen a los demas.</p>
+            <p>Estoy interesado en el desarrollo de software, aplicaciones web y moviles, inteligencia artificial, Robotica, Servicios en la nube,implementar soluciones tecnológicas innovadoras que apoyen a los demas.</p>
         
           </div>
         </div>
