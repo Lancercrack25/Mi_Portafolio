@@ -11,9 +11,7 @@ const crearFormato = (zona) => {
     return new Intl.DateTimeFormat('es-MX', opciones)
   }
 }
-
 const formato = crearFormato(DATOS.zonaHoraria)
-
 // El reloj vive en su propio componente para que el tic de cada segundo
 // no vuelva a dibujar el resto del panel.
 const Reloj = () => {
