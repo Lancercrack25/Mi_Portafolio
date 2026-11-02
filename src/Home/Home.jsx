@@ -26,7 +26,6 @@ const contenedor = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 }
-
 const tarjeta = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
@@ -36,19 +35,14 @@ const Home = () => {
   return (
     <div className="home-container">
       <FondoTecnico />
-
       <section className="about">
-
         <div className="about-container">
-
           {/* IZQUIERDA - FOTO */}
           <div className="about-left">
             <TiltImage src={yops} alt="Luis Jesús Lira" />
           </div>
-
           {/* DERECHA - INFO */}
           <div className="about-right">
-
             <h1>
               <ScrambleText texto="Luis Jesús Lira" retraso={0.6} alHover />
             </h1>
@@ -77,9 +71,7 @@ const Home = () => {
               <span className="highlight"> Mars Rover UDG Space</span>,
               desarrollando soluciones en el área de science mission para así contribuir al éxito de esta misión, la cual forma parte de nuestro robot de navegación autónoma.
             </p>
-
           </div>
-
         </div>
 
         {/* CARDS ABAJO */}

@@ -27,7 +27,7 @@ const validar = (form) => {
 }
 
 const Campo = ({ id, etiqueta, error, extra, children }) => (
-  <div className="campo" data-error={error ? '' : undefined}>
+  <div className="campo" data-error={error ? '' : undefined}>o
     <label htmlFor={id}>{etiqueta}</label>
     {children}
     {error && (
