@@ -1,0 +1,10 @@
+/* Formación: lista de una columna con trazo lateral, más sobria que las demás */
+.tr-formacion .tr-lista {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
+.tr-formacion .tr-tarjeta {
+  border-left: 2px solid rgba(46, 231, 255, 0.55);
+  border-radius: 6px 16px 16px 6px;
+}
