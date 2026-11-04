@@ -7,6 +7,7 @@ const enlaces = [
   { to: '/home', texto: 'Inicio' },
   { to: '/proyectos', texto: 'Proyectos' },
   { to: '/contacto', texto: 'Contacto' },
+  { to: '/trayectoria', texto: 'Trayectoria' },
 ]
 
 const Navbar = () => {

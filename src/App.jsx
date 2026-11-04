@@ -10,6 +10,7 @@ import Login from './admin-mode/login'
 import Interface from './admin-mode/interface'
 import RutaProtegida from './admin-mode/RutaProtegida'
 import { cerrarSesion } from './admin-mode/auth'
+import PaginaTrayectoria from './Certificaciones/PaginaTrayectoria'
 import './App.css'
 
 // La sesión de administrador termina en cuanto se sale de las rutas /admin
@@ -34,6 +35,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/proyectos" element={<Proyectos />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/trayectoria" element={<PaginaTrayectoria />} />
           </Route>
           <Route path="/admin" element={<Login />} />
           <Route
