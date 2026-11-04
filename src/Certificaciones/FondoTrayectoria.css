@@ -1,0 +1,109 @@
+/* ---------- Página Trayectoria: fondo de plano técnico + diagrama orbital ---------- */
+.tr-pagina {
+  position: relative;
+  min-height: 100vh;
+  color: #fff;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(20, 60, 110, 0.35), transparent 70%),
+    linear-gradient(180deg, #050a16 0%, #04060e 100%);
+}
+
+/* El contenido va por encima del fondo fijo */
+.tr-pagina > :not(.tr-fondo) {
+  position: relative;
+  z-index: 1;
+}
+
+.tr-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  /* cuadrícula de plano */
+  background-image:
+    linear-gradient(rgba(46, 231, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 231, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(46, 231, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 231, 255, 0.025) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+.tr-fondo-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* Oscurece lo justo para que las tarjetas se lean encima del diagrama */
+.tr-fondo-velo {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(4, 6, 14, 0.5) 25%, rgba(4, 6, 14, 0.15) 100%),
+    linear-gradient(180deg, rgba(4, 6, 14, 0.55), transparent 25%);
+}
+
+.tr-escala {
+  fill: none;
+  stroke: rgba(46, 231, 255, 0.35);
+  stroke-width: 9;
+  stroke-dasharray: 1 12.2;
+}
+
+.tr-escala-fina {
+  fill: none;
+  stroke: rgba(46, 231, 255, 0.12);
+  stroke-width: 1;
+}
+
+.tr-anillo {
+  fill: none;
+  stroke: rgba(46, 231, 255, 0.07);
+  stroke-width: 1;
+}
+
+.tr-eje {
+  stroke: rgba(46, 231, 255, 0.1);
+  stroke-width: 1;
+  stroke-dasharray: 2 8;
+}
+
+.tr-orbita {
+  fill: none;
+  stroke-width: 1.2;
+  stroke-dasharray: 3 7;
+}
+
+.tr-orbita.tierra { stroke: rgba(46, 231, 255, 0.5); }
+.tr-orbita.marte { stroke: rgba(255, 122, 69, 0.55); }
+
+.tr-transferencia {
+  fill: none;
+  stroke: #ff3f8f;
+  stroke-width: 1.6;
+  filter: drop-shadow(0 0 6px rgba(255, 63, 143, 0.7));
+}
+
+.tr-nodo {
+  fill: #04060e;
+  stroke: #ff3f8f;
+  stroke-width: 1.5;
+}
+
+.tr-nave {
+  filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #2ee7ff);
+}
+
+/* Las tarjetas dejan ver el diagrama por debajo */
+.tr-pagina .tr-tarjeta {
+  background: rgba(8, 10, 20, 0.66);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@media (max-width: 700px) {
+  .tr-fondo-svg { opacity: 0.55; }
+}

@@ -2,7 +2,6 @@ import { motion } from 'motion/react'
 import Tarjeta from './Tarjeta'
 
 const contenedor = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }
-
 // Un bloque con título pequeño y su lista de tarjetas.
 const Grupo = ({ titulo, datos, destacadas = false, clase = '' }) => (
   <div className={`tr-grupo ${clase}`}>

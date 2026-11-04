@@ -21,7 +21,7 @@ export const RECONOCIMIENTOS = [
     emisor: 'NASA',
     rol: 'Mentor',
     detalle: '',
-    anio: '',
+    anio: '2025',
     enlace: '',
   },
 ]
