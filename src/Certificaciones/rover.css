@@ -1,0 +1,25 @@
+/* Reconocimientos: tarjetas destacadas (acento naranja Marte) */
+.tr-reconocimientos .tr-tarjeta.destacada {
+  border-color: rgba(255, 140, 90, 0.28);
+  padding: 30px;
+  background:
+    radial-gradient(ellipse 70% 60% at 100% 0%, rgba(255, 90, 60, 0.1), transparent 70%),
+    rgba(14, 10, 16, 0.82);
+}
+
+.tr-reconocimientos .tr-tarjeta.destacada:hover {
+  border-color: rgba(255, 140, 90, 0.6);
+  box-shadow: 0 0 28px rgba(255, 110, 60, 0.16), 0 18px 36px rgba(0, 0, 0, 0.5);
+}
+
+.tr-reconocimientos .tr-nombre {
+  font-size: 1rem;
+}
+
+.tr-reconocimientos .tr-emisor {
+  color: #ffb08a;
+}
+
+@media (max-width: 600px) {
+  .tr-reconocimientos .tr-tarjeta.destacada { padding: 22px; }
+}
