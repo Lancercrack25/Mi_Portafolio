@@ -4,9 +4,9 @@
 
 .frameworks-title {
   text-align: center;
-  font-size: 27px;
   margin-bottom: 30px;
-
+  font-size: clamp(14px, 4.6vw, 27px);   /* antes: font-size: 27px; */
+  overflow-wrap: anywhere;  
   background: linear-gradient(135deg, #2ee7ff, #ff3f8f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
