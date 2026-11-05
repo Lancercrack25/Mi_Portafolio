@@ -46,11 +46,11 @@
   box-shadow: 0 0 10px #2ee7ff;
 }
 
-.tr-grupo-titulo::after {
-  content: '';
+.tr-grupo-linea {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(46, 231, 255, 0.35), transparent);
+  transform-origin: left;
+  background: linear-gradient(90deg, rgba(46, 231, 255, 0.55), transparent);
 }
 
 .tr-lista {
@@ -64,6 +64,7 @@
 
 .tr-tarjeta {
   position: relative;
+  opacity: 0; /* se muestra al entrar en pantalla (clase .visible) */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -249,3 +250,40 @@
 
 .tr-visor-cerrar:hover { border-color: #2ee7ff; color: #2ee7ff; }
 .tr-visor-cerrar:focus-visible { outline: 2px solid #3ff2ff; outline-offset: 3px; }
+
+/* ---------- Entrada: barrido pixelado + línea de escaneo ---------- */
+.tr-tarjeta.visible { opacity: 1; }
+
+.tr-tarjeta.boot {
+  animation: tr-pixel 0.9s steps(12) var(--d, 0s) backwards;
+}
+
+@keyframes tr-pixel {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.tr-scan {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  background: #2ee7ff;
+  box-shadow: 0 0 12px 2px rgba(46, 231, 255, 0.8);
+}
+
+.tr-tarjeta.boot .tr-scan {
+  animation: tr-scan 0.9s steps(12) var(--d, 0s) backwards;
+}
+
+@keyframes tr-scan {
+  from { top: 0; opacity: 1; }
+  to { top: 100%; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr-tarjeta.boot,
+  .tr-tarjeta.boot .tr-scan { animation: none; }
+}

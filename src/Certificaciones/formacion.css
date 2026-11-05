@@ -18,6 +18,18 @@
   background: linear-gradient(180deg, #2ee7ff, rgba(46, 231, 255, 0.15));
 }
 
+/* Línea que se enciende con el scroll */
+.tr-linea-progreso {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 4px;
+  width: 3px;
+  transform-origin: top;
+  background: linear-gradient(180deg, #2ee7ff, #ff3f8f);
+  box-shadow: 0 0 12px rgba(46, 231, 255, 0.8);
+}
+
 /* Nodo cuadrado de cada entrada */
 .tr-formacion .tr-tarjeta::before {
   content: '';
@@ -29,6 +41,12 @@
   background: #04060e;
   border: 2px solid #2ee7ff;
   box-shadow: 0 0 10px rgba(46, 231, 255, 0.7);
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.2, 1.6, 0.4, 1) 0.2s;
+}
+
+.tr-formacion .tr-tarjeta.visible::before {
+  transform: scale(1);
 }
 
 .tr-formacion .tr-tarjeta {

@@ -1,12 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { motion } from 'motion/react'
+import { useInView } from 'motion/react'
 import './certificacion.css'
-
-const entra = {
-  hidden: { opacity: 0, y: 26 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
 
 // Imagen ampliada. Va en un portal (body) porque la tarjeta tiene transform y rompería el position: fixed.
 const Visor = ({ src, alt, cerrar }) => {
@@ -37,10 +32,18 @@ const Visor = ({ src, alt, cerrar }) => {
 }
 
 // Tarjeta común. Todo lo que venga vacío en datos.js simplemente no se dibuja.
-const Tarjeta = ({ dato, destacada = false }) => {
+const Tarjeta = ({ dato, indice = 0, destacada = false }) => {
   const [abierta, setAbierta] = useState(false)
+  const ref = useRef(null)
+  // Entra al aparecer en pantalla: barrido pixelado + línea de escaneo (mismo lenguaje que Proyectos)
+  const visto = useInView(ref, { once: true, amount: 0.2 })
   return (
-  <motion.li className={`tr-tarjeta ${destacada ? 'destacada' : ''}`} variants={entra}>
+  <li
+    ref={ref}
+    className={`tr-tarjeta ${destacada ? 'destacada' : ''} ${visto ? 'visible boot' : ''}`}
+    style={{ '--d': `${Math.min(indice, 4) * 0.14}s` }}
+  >
+    <span className="tr-scan" aria-hidden="true" />
     <span className="tr-esq tr-esq-a" aria-hidden="true" />
     <span className="tr-esq tr-esq-b" aria-hidden="true" />
     <div className="tr-cuerpo">
@@ -72,7 +75,7 @@ const Tarjeta = ({ dato, destacada = false }) => {
         Verificar ↗
       </a>
     )}
-  </motion.li>
+  </li>
   )
 }
 

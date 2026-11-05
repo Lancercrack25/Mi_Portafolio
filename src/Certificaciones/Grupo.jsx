@@ -1,23 +1,34 @@
-import { motion } from 'motion/react'
+import { useRef } from 'react'
+import { motion, useScroll } from 'motion/react'
 import Tarjeta from './Tarjeta'
 
-const contenedor = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }
-// Un bloque con título pequeño y su lista de tarjetas.
-const Grupo = ({ titulo, datos, destacadas = false, clase = '' }) => (
-  <div className={`tr-grupo ${clase}`}>
-    <h3 className="tr-grupo-titulo">{titulo}</h3>
-    <motion.ul
-      className="tr-lista"
-      variants={contenedor}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      {datos.map((d) => (
-        <Tarjeta key={d.id} dato={d} destacada={destacadas} />
-      ))}
-    </motion.ul>
-  </div>
-)
+// Un bloque con título pequeño (con línea que se dibuja) y su lista de tarjetas.
+// linea: dibuja una línea de progreso que se va encendiendo con el scroll (línea de tiempo).
+const Grupo = ({ titulo, datos, destacadas = false, clase = '', linea = false }) => {
+  const lista = useRef(null)
+  const { scrollYProgress } = useScroll({ target: lista, offset: ['start 70%', 'end 70%'] })
+
+  return (
+    <div className={`tr-grupo ${clase}`}>
+      <h3 className="tr-grupo-titulo">
+        <span>{titulo}</span>
+        <motion.span
+          className="tr-grupo-linea"
+          aria-hidden="true"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        />
+      </h3>
+      <ul className="tr-lista" ref={lista}>
+        {linea && <motion.span className="tr-linea-progreso" aria-hidden="true" style={{ scaleY: scrollYProgress }} />}
+        {datos.map((d, i) => (
+          <Tarjeta key={d.id} dato={d} indice={i} destacada={destacadas} />
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 export default Grupo
