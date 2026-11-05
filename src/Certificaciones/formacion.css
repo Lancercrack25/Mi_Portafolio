@@ -1,10 +1,51 @@
-/* Formación: lista de una columna con trazo lateral, más sobria que las demás */
+/* Formación: línea de tiempo vertical. Una tarjeta ancha por entrada: texto a la izquierda, documento a la derecha. */
 .tr-formacion .tr-lista {
-  grid-template-columns: 1fr;
-  max-width: 640px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-left: 36px;
+}
+
+/* Línea vertical */
+.tr-formacion .tr-lista::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 5px;
+  width: 1px;
+  background: linear-gradient(180deg, #2ee7ff, rgba(46, 231, 255, 0.15));
+}
+
+/* Nodo cuadrado de cada entrada */
+.tr-formacion .tr-tarjeta::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: -36px;
+  width: 11px;
+  height: 11px;
+  background: #04060e;
+  border: 2px solid #2ee7ff;
+  box-shadow: 0 0 10px rgba(46, 231, 255, 0.7);
 }
 
 .tr-formacion .tr-tarjeta {
-  border-left: 2px solid rgba(46, 231, 255, 0.55);
-  border-radius: 6px 16px 16px 6px;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+}
+
+.tr-formacion .tr-miniatura {
+  flex: none;
+  width: min(300px, 38%);
+  margin-top: 0;
+}
+
+@media (max-width: 800px) {
+  .tr-formacion .tr-lista { padding-left: 26px; }
+  .tr-formacion .tr-tarjeta { flex-direction: column; align-items: stretch; gap: 14px; }
+  .tr-formacion .tr-tarjeta::before { left: -26px; }
+  .tr-formacion .tr-miniatura { width: 100%; }
 }

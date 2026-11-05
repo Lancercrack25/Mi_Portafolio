@@ -43,19 +43,21 @@ const Tarjeta = ({ dato, destacada = false }) => {
   <motion.li className={`tr-tarjeta ${destacada ? 'destacada' : ''}`} variants={entra}>
     <span className="tr-esq tr-esq-a" aria-hidden="true" />
     <span className="tr-esq tr-esq-b" aria-hidden="true" />
-    <div className="tr-fila">
-      <span className="tr-etiqueta">{dato.etiqueta}</span>
-      {dato.anio && <span className="tr-anio">{dato.anio}</span>}
+    <div className="tr-cuerpo">
+      <div className="tr-fila">
+        <span className="tr-etiqueta">{dato.etiqueta}</span>
+        {dato.anio && <span className="tr-anio">{dato.anio}</span>}
+      </div>
+      <h3 className="tr-nombre">{dato.titulo}</h3>
+      {(dato.emisor || dato.rol) && (
+        <p className="tr-emisor">
+          {dato.emisor}
+          {dato.emisor && dato.rol && ' · '}
+          {dato.rol}
+        </p>
+      )}
+      {dato.detalle && <p className="tr-detalle">{dato.detalle}</p>}
     </div>
-    <h3 className="tr-nombre">{dato.titulo}</h3>
-    {(dato.emisor || dato.rol) && (
-      <p className="tr-emisor">
-        {dato.emisor}
-        {dato.emisor && dato.rol && ' · '}
-        {dato.rol}
-      </p>
-    )}
-    {dato.detalle && <p className="tr-detalle">{dato.detalle}</p>}
     {dato.imagen && (
       <>
         <button type="button" className="tr-miniatura" onClick={() => setAbierta(true)} aria-label={`Ver documento: ${dato.titulo}`}>

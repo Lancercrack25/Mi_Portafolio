@@ -94,6 +94,14 @@
 .tr-esq-a { top: 8px; right: 8px; border-top-width: 1px; border-right-width: 1px; }
 .tr-esq-b { bottom: 8px; left: 8px; border-bottom-width: 1px; border-left-width: 1px; }
 
+.tr-cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  min-width: 0;
+}
+
 .tr-fila {
   display: flex;
   justify-content: space-between;
@@ -183,10 +191,10 @@
 .tr-miniatura img {
   display: block;
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  object-position: top;
-  opacity: 0.85;
+  aspect-ratio: 4 / 3;
+  object-fit: contain; /* se ve el documento completo, sin recortar */
+  background: #0a0c14;
+  opacity: 0.92;
   transition: opacity 0.3s ease, transform 0.4s ease;
 }
 
@@ -200,7 +208,7 @@
   background: linear-gradient(0deg, rgba(4, 6, 14, 0.92), transparent);
 }
 
-.tr-miniatura:hover img { opacity: 1; transform: scale(1.04); }
+.tr-miniatura:hover img { opacity: 1; transform: scale(1.03); }
 .tr-miniatura:focus-visible { outline: 2px solid #3ff2ff; outline-offset: 3px; }
 
 .tr-visor {
