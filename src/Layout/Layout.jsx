@@ -4,11 +4,6 @@ import Navbar from '../Navbar/navbar'
 import PixelCurtain from './PixelCurtain'
 import './Layout.css'
 
-// El navbar vive aquí (una sola vez) para que el subrayado animado pueda moverse
-// entre páginas. La transición es la cortina de pixeles: con mode="wait" la página
-// anterior sale (la cortina se cierra), se cambia el contenido ya tapado, y la
-// nueva entra (la cortina se abre). No se anima ningún transform en este contenedor
-// porque rompería el position: fixed del navbar.
 const Layout = () => {
   const { pathname } = useLocation()
   const outlet = useOutlet()

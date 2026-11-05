@@ -6,7 +6,6 @@ import reconocimiento from '../assets/reconocimiento.png'
 import Newp from '../assets/Newp.png'
 import Nasa from '../assets/Nasa.png'
 
-
 export const RECONOCIMIENTOS = [
   {
     id: 'urc',
@@ -86,5 +85,4 @@ export const FORMACION = [
     anio: '2025',
     enlace: '',
   },
-
 ]
