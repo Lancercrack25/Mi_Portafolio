@@ -27,3 +27,7 @@ Backend/.env
 src/admin-mode
 src/config.js
 src/assets/yops.jpeg
+src/assets/URC.png
+src/assets/curso.png
+src/assets/English.png
+src/assets/web.png

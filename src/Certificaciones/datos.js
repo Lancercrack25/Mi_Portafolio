@@ -11,7 +11,7 @@ export const RECONOCIMIENTOS = [
     enlace: '',
   },
   {
-    id: 'spaceapps',
+    id: 'Mentor local',
     etiqueta: 'Mentoría',
     titulo: 'NASA Space Apps Challenge',
      imagen:'',
@@ -25,7 +25,7 @@ export const RECONOCIMIENTOS = [
 
 export const CERTIFICACIONES = [
   {
-    id: 'cisco-ciber',
+    id: 'cisco-ciberseguridad',
     etiqueta: 'Certificación',
     titulo: 'Ciberseguridad',
      imagen:'',
@@ -48,13 +48,37 @@ export const CERTIFICACIONES = [
 
 export const FORMACION = [
   {
-    id: 'prepa-web',
+    id: 'Reconocimiento desarrollo web',
     etiqueta: 'Constancia',
     titulo: 'Desarrollo Web',
      imagen:'',
-    emisor: 'Preparatoria',
+    emisor: 'Preparatoria no.4 UDG',
     detalle: '',
-    anio: '',
+    anio: '2022',
     enlace: '',
   },
+  {
+    id: 'Reconocimiento desarrollo web',
+    etiqueta: 'Constancia',
+    titulo: 'Desarrollo Web',
+     imagen:'',
+    emisor: 'Preparatoria no.4 UDG',
+    detalle: '',
+    anio: '2022',
+    enlace: '',
+  },
+  {
+    id: 'JOBS',
+    etiqueta: 'Constancia',
+    titulo: 'Certificado de participación en el programa JOBS',
+     imagen:'',
+    emisor: 'Universidad de Guadalajara',
+    detalle: '',
+    anio: '2025',
+    enlace: '',
+  },
+
+
+
+
 ]
