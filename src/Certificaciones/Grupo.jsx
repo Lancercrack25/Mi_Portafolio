@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll } from 'motion/react'
 import Tarjeta from './Tarjeta'
-
 // Un bloque con título pequeño (con línea que se dibuja) y su lista de tarjetas.
 // linea: dibuja una línea de progreso que se va encendiendo con el scroll (línea de tiempo).
 const Grupo = ({ titulo, datos, destacadas = false, clase = '', linea = false }) => {
@@ -18,7 +17,7 @@ const Grupo = ({ titulo, datos, destacadas = false, clase = '', linea = false })
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
         />
       </h3>
       <ul className="tr-lista" ref={lista}>
@@ -30,5 +29,4 @@ const Grupo = ({ titulo, datos, destacadas = false, clase = '', linea = false })
     </div>
   )
 }
-
 export default Grupo
