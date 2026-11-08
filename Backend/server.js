@@ -10,7 +10,6 @@ import { helmet, limitador, limitadorContacto } from './seguridad.js'
 import { limiteLogin, login, soloAdmin, validarConfig } from './adminAuth.js'
 
 validarConfig() // falla al arrancar si faltan ADMIN_USER, ADMIN_HASH o JWT_SECRET en .env
-
 await initTablas()
 const app = express()
 
@@ -29,7 +28,7 @@ app.post('/contacto', limitadorContacto, async (req, res) => {
   const { nombre, email, mensaje } = req.body
 
   if (!nombre || !email || !mensaje) {
-    return res.status(400).json({ error: '❌ Todos los campos son requeridos' })
+    return res.status(400).json({ error: ' Todos los campos son requeridos' })
   }
 
   try {
@@ -37,10 +36,10 @@ app.post('/contacto', limitadorContacto, async (req, res) => {
       'INSERT INTO contacto (nombre, email, mensaje) VALUES ($1, $2, $3)',
       [nombre, email, mensaje]
     )
-    res.json({ mensaje: '✅ Mensaje enviado correctamente' })
+    res.json({ mensaje: 'Mensaje enviado correctamente' })
   } catch (err) {
     console.error(err)
-    res.status(500).json({ error: '❌ Error al guardar el mensaje' })
+    res.status(500).json({ error: ' Error al guardar el mensaje' })
   }
 })
 
@@ -50,7 +49,7 @@ app.get('/contacto', soloAdmin, async (req, res) => {
     res.json(result.rows)
   } catch (err) {
     console.error(err)
-    res.status(500).json({ error: '❌ Error al obtener los mensajes' })
+    res.status(500).json({ error: ' Error al obtener los mensajes' })
   }
 })
 
@@ -60,14 +59,14 @@ app.delete('/contacto/:id', soloAdmin, async (req, res) => {
   const { id } = req.params
   try {
     await pool.query('DELETE FROM contacto WHERE id = $1', [id])
-    res.json({ mensaje: '✅ Mensaje eliminado' })
+    res.json({ mensaje: ' Mensaje eliminado' })
   } catch  {
-    res.status(500).json({ error: '❌ Error al eliminar el mensaje' })
+    res.status(500).json({ error: ' Error al eliminar el mensaje' })
   }
 })
 
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en puerto ${PORT}`)
+  console.log(` Servidor corriendo exitosamente en  el puerto ${PORT}`)
 })

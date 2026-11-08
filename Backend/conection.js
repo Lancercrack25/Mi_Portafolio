@@ -3,9 +3,7 @@ import dotenv from 'dotenv'
 import process from 'node:process'
 
 dotenv.config()
-
 const { Pool, Client } = pkg
-
 const adminClient = new Client({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -22,7 +20,7 @@ const res = await adminClient.query(
 
 if (res.rowCount === 0) {
   await adminClient.query('CREATE DATABASE portafolio')
-  console.log('✅ Base de datos portafolio creada')
+  console.log(' Base de datos creada exitosamente')
 }
 
 await adminClient.end()
@@ -36,7 +34,7 @@ const pool = new Pool({
 })
 
 pool.connect()
-  .then(() => console.log('✅ Conectado a PostgreSQL'))
-  .catch(err => console.error('❌ Error de conexión:', err))
+  .then(() => console.log('Conectado a PostgreSQL'))
+  .catch(err => console.error(' Error de conexión:', err))
 
 export default pool
