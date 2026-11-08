@@ -13,17 +13,15 @@ const SECRETO = process.env.JWT_SECRET || crypto.randomBytes(48).toString('base6
 const config = () => {
   const { AD_NAME, AD_PASSWORD } = process.env
   if (!AD_NAME || !AD_PASSWORD) throw new Error('Faltan AD_NAME o AD_PASSWORD en el .env')
-  if (AD_PASSWORD.length < 12) console.warn('⚠️  AD_PASSWORD es corta: usa 12 caracteres o más.')
+  if (AD_PASSWORD.length < 12) console.warn(' AD_PASSWORD es corta: usa 12 caracteres o más.')
   return { AD_NAME, AD_PASSWORD, JWT_SECRET: SECRETO, EXPIRA: process.env.JWT_EXPIRA || '1h' }
 }
-
 // Comparación en tiempo constante (no revela cuántos caracteres coinciden)
 const igual = (a, b) => {
   const ha = crypto.createHash('sha256').update(String(a)).digest()
   const hb = crypto.createHash('sha256').update(String(b)).digest()
   return crypto.timingSafeEqual(ha, hb)
 }
-
 const limiteLogin = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 10, // 10 intentos cada 15 min por IP
@@ -46,7 +44,6 @@ const login = (req, res) => {
   const token = jwt.sign({ rol: 'admin' }, JWT_SECRET, { algorithm: 'HS256', expiresIn: EXPIRA })
   res.json({ token })
 }
-
 // Middleware: deja pasar solo con un token válido de administrador
 const soloAdmin = (req, res, next) => {
   try {
@@ -60,8 +57,6 @@ const soloAdmin = (req, res, next) => {
     res.status(401).json({ error: 'No autorizado' })
   }
 }
-
 // Llamar al arrancar: si falta algo en .env, el servidor no inicia (mejor que fallar en el primer login)
 const validarConfig = () => config()
-
 export { limiteLogin, login, soloAdmin, validarConfig }

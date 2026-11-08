@@ -15,10 +15,10 @@ export async function initTablas() {
       );
     `)
 
-    console.log('✅ Tablas creadas correctamente')
+    console.log('Tablas creadas correctamente')
 
   } catch (error) {
-    console.error('❌ Error al crear tablas:', error)
+    console.error(' Error al crear tablas en la base de datos:', error)
     process.exit(1)
   }
 }
