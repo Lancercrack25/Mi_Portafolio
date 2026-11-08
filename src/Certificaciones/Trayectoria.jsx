@@ -7,9 +7,9 @@ import Formacion from './formacion'
 const Trayectoria = () => (
   <section className="tr" aria-labelledby="tr-titulo">
     <h2 className="tr-titulo" id="tr-titulo">
-      <ScrambleText texto="Trayectoria" modo="decodificar" retraso={0.3} duracion={1.3} />
+      <ScrambleText texto="Trayectoria" modo="decodificar" retraso={0.2} duracion={1.1} />
     </h2>
-    <p className="tr-intro">Competencias, mentorías y formación que respaldan lo que construyo.</p>
+    <p className="tr-intro"> En esta sección, comparto mis competencias, mentorías y formación que respaldan lo que construyo.</p>
     <Rover />
     <Certificacion />
     <Formacion />

@@ -2,9 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { animate, useReducedMotion } from 'motion/react'
 import './ScrambleText.css'
 
-const RUIDO = '!<>-_\\/[]{}=+*^?#%&$01'
-
-// Para lectores de pantalla: el texto real siempre está disponible
+const RUIDO = '!*^?#%&$01'
 const SOLO_LECTOR = {
   position: 'absolute',
   width: 1,
@@ -13,7 +11,6 @@ const SOLO_LECTOR = {
   clip: 'rect(0 0 0 0)',
   whiteSpace: 'nowrap',
 }
-
 // Deja las primeras `fijas` letras tal cual y el resto como caracteres al azar.
 // Conserva los espacios y el largo total, así el texto no mueve el diseño.
 const conRuido = (texto, fijas) => {
@@ -23,7 +20,6 @@ const conRuido = (texto, fijas) => {
   }
   return s
 }
-
 /**
  * Texto con efecto de terminal.
  *  modo="decodificar": empieza como ruido y se va fijando letra por letra.
@@ -96,5 +92,4 @@ const ScrambleText = ({
     </span>
   )
 }
-
 export default ScrambleText
