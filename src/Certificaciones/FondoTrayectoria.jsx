@@ -17,7 +17,6 @@ const FondoTrayectoria = () => {
   const nave = useRef(null)
   const lectura = useRef(null)
   const { scrollYProgress } = useScroll()
-
   // La nave avanza por la órbita de transferencia según el scroll de la página:
   // arriba = Tierra, al final = Marte. Se mueve por atributos, sin re-renderizar React.
   const colocar = useCallback((p) => {

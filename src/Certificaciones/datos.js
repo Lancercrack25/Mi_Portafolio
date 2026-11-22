@@ -29,6 +29,17 @@ export const RECONOCIMIENTOS = [
     anio: '2025',
     enlace: '',
   },
+  {
+    id: 'mentor-local',
+    etiqueta: 'Mentoría',
+    titulo: 'NASA Space Apps Challenge',
+    imagen: '',
+    emisor: 'NASA',
+    rol: 'Mentor local',
+    detalle: 'Hackatón internacional de la NASA en el que participé como mentor local de la zona de Guadalajara, en el cual este año pude brindar apoyo y asesoria a los participantes que me requerian para que asi estos puedan desarrollar sus proyectos que presentaron para la nasa.',
+    anio: '2026',
+    enlace: '',
+  },
 ]
 
 export const CERTIFICACIONES = [
