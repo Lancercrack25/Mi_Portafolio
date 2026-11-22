@@ -9,7 +9,7 @@
 
 .tr-reconocimientos .tr-tarjeta.destacada:hover {
   border-color: rgba(255, 140, 90, 0.6);
-  box-shadow: 0 0 28px rgba(255, 110, 60, 0.16), 0 18px 36px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 28px rgba(255, 109, 60, 0.438), 0 18px 36px rgba(0, 0, 0, 0.5);
 }
 
 .tr-reconocimientos .tr-nombre {
