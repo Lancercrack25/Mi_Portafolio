@@ -51,18 +51,15 @@ const FondoTrayectoria = () => {
             <stop offset="1" stopColor="#2ee7ff" />
           </linearGradient>
         </defs>
-
         {/* Escala de grados en el borde exterior */}
         <circle r="372" className="tr-escala" />
         <circle r="360" className="tr-escala-fina" />
-
         {/* Anillos de referencia */}
         {[100, 150, 250, 350].map((r) => (
           <circle key={r} r={r} className="tr-anillo" />
         ))}
         <line x1="-480" x2="480" y1="0" y2="0" className="tr-eje" />
         <line y1="-330" y2="330" x1="0" x2="0" className="tr-eje" />
-
         {/* Órbitas de la Tierra y de Marte */}
         <circle r={R1} className="tr-orbita tierra" />
         <circle r={R2} className="tr-orbita marte" />
@@ -81,11 +78,9 @@ const FondoTrayectoria = () => {
         {/* Sol */}
         <circle r="46" fill="url(#tr-sol)" opacity="0.55" />
         <circle r="7" fill="#ffb45e" />
-
         {/* Puntos de salida y llegada */}
         <circle cx={R1} cy="0" r="4" className="tr-nodo" />
         <circle cx={-R2} cy="0" r="4" className="tr-nodo" />
-
         {/* Planetas orbitando (giro lento, solo si no hay "reducir movimiento") */}
         <g>
           {!reducir && <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="70s" repeatCount="indefinite" />}
@@ -109,5 +104,4 @@ const FondoTrayectoria = () => {
     </div>
   )
 }
-
 export default FondoTrayectoria

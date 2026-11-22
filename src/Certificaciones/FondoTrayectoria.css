@@ -84,7 +84,7 @@
   fill: none;
   stroke: #ff3f8f;
   stroke-width: 1.6;
-  filter: drop-shadow(0 0 6px rgba(255, 63, 143, 0.7));
+  filter: drop-shadow(0 0 6px rgba(255, 63, 143, 0.822));
 }
 
 .tr-nodo {
