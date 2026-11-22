@@ -4,7 +4,6 @@
   min-height: 100vh;
   background: #03040a;
 }
-
 /* ---------- Fondo de Marte (fijo, detrás de todo) ---------- */
 .proyectos-fondo,
 .proyectos-velo {
@@ -13,7 +12,6 @@
   pointer-events: none;
   z-index: 0;
 }
-
 /* Oscurece lo justo para que las tarjetas se lean sobre el planeta */
 .proyectos-velo {
   background:
