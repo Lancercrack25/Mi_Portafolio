@@ -4,7 +4,6 @@ import process from 'node:process'
 export async function initTablas() {
   try {
     console.log('Inicializando tablas...')
-
     await pool.query(`
       CREATE TABLE IF NOT EXISTS contacto (
         id SERIAL PRIMARY KEY,
@@ -16,7 +15,6 @@ export async function initTablas() {
     `)
 
     console.log('Tablas creadas correctamente')
-
   } catch (error) {
     console.error(' Error al crear tablas en la base de datos:', error)
     process.exit(1)

@@ -20,7 +20,6 @@ const variantes = {
   cubierto: (b) => ({ opacity: 1, scale: 1, transition: { duration: 0.16, delay: b.espera } }),
   libre: (b) => ({ opacity: 0, scale: 0.35, transition: { duration: 0.2, delay: b.espera } }),
 }
-
 // Mosaico de pixeles. Nace cubriendo la pantalla ("cubierto"), se deshace al entrar
 // ("libre") y vuelve a cubrir al salir. Como es el mismo estado al salir y al entrar,
 // el cambio de página ocurre justo cuando todo está tapado.

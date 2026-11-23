@@ -19,7 +19,6 @@ app.use(cors({
   origin: 'http://localhost:5173' // solo permite peticiones desde tu frontend
 }))
 app.use(express.json({ limit: '20kb' }))
-
 app.get('/', (req, res) => {
   res.json({ mensaje: '🚀 Servidor corriendo correctamente' })
 })
@@ -54,7 +53,6 @@ app.get('/contacto', soloAdmin, async (req, res) => {
 })
 
 app.post('/admin/login', limiteLogin, login)
-
 app.delete('/contacto/:id', soloAdmin, async (req, res) => {
   const { id } = req.params
   try {
@@ -66,7 +64,6 @@ app.delete('/contacto/:id', soloAdmin, async (req, res) => {
 })
 
 const PORT = process.env.PORT || 3000
-
 app.listen(PORT, () => {
   console.log(` Servidor corriendo exitosamente en  el puerto ${PORT}`)
 })
